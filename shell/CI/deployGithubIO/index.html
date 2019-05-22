@@ -6,10 +6,36 @@
 <li>借助travis-ci来实现网站的自动部署</li>
 </ul>
 <p>因为网站的生成与部署都可以实现自动化,所以我们可以更加专注于文档的内容。</p>
-<p>在整个流程中，首先将使用markdown编写的文档push到远程仓库中，一次新的commit
-会触发travis-ci来开始工作，tarvis-ci会首先编译最新的工程文档，生成静态站点,
-紧接着将该站点push到github.io上,当然所有的工作都是自动化完成的。</p>
+<p>在整个流程中，首先将使用<code>markdown</code>编写的文档<code>push</code>到远程仓库中，一次新的commit
+会触发<code>travis-ci</code>来开始工作，tarvis-ci会首先编译最新的工程文档，生成静态站点,
+紧接着将该站点push到<code>github.io</code>上,当然所有的工作都是自动化完成的。</p>
 <h2 id="mkdocs">使用MkDocs生成网站</h2>
 <p>MkDocs是将使用Markdown编写的工程文档编译成静态站点的一个工具,详细的信息可以参考
-官方网站。
-TODO!!!</p></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">后退</span>Home</span></div></a><a href="../../../JS/ObjectOriented/" title="对象设计" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">前进</span>对象设计</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright"><div class="md-footer-copyright__highlight">Copyright &copy; 2019 - 2019 Kai.Zhou</div>powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div></div></div></footer></div><script src="../../../assets/javascripts/application.b260a35d.js"></script><script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script><script src="../../../assets/javascripts/lunr/tinyseg.js"></script><script src="../../../assets/javascripts/lunr/lunr.ja.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script></body></html>
+官方网站。</p>
+<ul>
+<li>安装相应的工具</li>
+<li><a href="https://www.mkdocs.org/#installation">安装MkDocs</a></li>
+<li><a href="https://github.com/squidfunk/mkdocs-material">安装Material for MkDocs(该网站主题)</a></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># 验证mkdocs是否安装成功</span>
+$ mkdocs --version
+mkdocs, version <span class="m">1</span>.0 from YOUR/INSTALL/PATH
+</pre></div>
+
+
+<ul>
+<li><a href="https://www.mkdocs.org/#getting-started">生成工程目录</a></li>
+<li><a href="https://www.mkdocs.org/user-guide/configuration/">修改配置文件</a> </li>
+<li>修改站点名称<code>site_name</code>(可选)</li>
+<li>
+<p><a href="https://www.mkdocs.org/user-guide/configuration/#documentation-layout">创建文档布局</a></p>
+</li>
+<li>
+<p><a href="https://www.mkdocs.org/user-guide/styling-your-docs/">设置网站主题</a></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在实际的配置过程中,可以使用<code>mkdocs serve</code>来命令来预览生成的站点样式。
+详细内容请参考<a href="https://www.mkdocs.org/#getting-started">mkdocs serve命令</a>.</p>
+</div></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../../.." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">后退</span>Home</span></div></a><a href="../../../JS/ObjectOriented/" title="对象设计" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">前进</span>对象设计</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright"><div class="md-footer-copyright__highlight">Copyright &copy; 2019 - 2019 Kai.Zhou</div>powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div></div></div></footer></div><script src="../../../assets/javascripts/application.b260a35d.js"></script><script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script><script src="../../../assets/javascripts/lunr/tinyseg.js"></script><script src="../../../assets/javascripts/lunr/lunr.ja.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script></body></html>
