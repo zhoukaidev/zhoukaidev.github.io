@@ -3,11 +3,13 @@
 <p><em>subscripts</em>实际上是类访问列表,集合或序列的一种快捷方式。</p>
 <p>你可以通过<em>subscripts</em>来访问或修改数据。例如我们可以通过somaArray[index]的形式来访问一个Array中的某一个元素。Subscripts不仅可以是一维的，我们可以根据需求定义多维的输入。</p>
 <p>对于熟悉C++的人而言，这里的subscripts实际上就是"[ ]操作符重载"。</p>
-<p>以下内容分为:
-* subscript语法
-* 定义read-only的subscript
-* 定义read-write的subscript
-* Type subscripts</p>
+<p>以下内容分为:</p>
+<ul>
+<li>subscript语法</li>
+<li>定义read-only的subscript</li>
+<li>定义read-write的subscript</li>
+<li>Type subscripts</li>
+</ul>
 <h2 id="subscript">subscript语法</h2>
 <p>通过使用<code>subscript</code>关键字,然后紧接着指定一个或多个输入参数及返回类型来定义subscript.</p>
 <div class="codehilite"><pre><span></span><span class="kd">subscript</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
