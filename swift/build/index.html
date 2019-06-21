@@ -700,8 +700,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#xcodebuild" title="xcodebuild编译代码" class="md-nav__link">
-    xcodebuild编译代码
+  <a href="#build" title="编译(Build)" class="md-nav__link">
+    编译(Build)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archive" title="打包(Archive)" class="md-nav__link">
+    打包(Archive)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-sign" title="代码签名(code sign)" class="md-nav__link">
+    代码签名(code sign)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="什么是代码签名" class="md-nav__link">
+    什么是代码签名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="代码签名的基本流程" class="md-nav__link">
+    代码签名的基本流程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="参考文档" class="md-nav__link">
+    参考文档
   </a>
   
 </li>
@@ -728,13 +769,150 @@
                   <h1>Build</h1>
                 
                 <h2 id="_1">简介</h2>
-<p>本文介绍主要分为几个方面:</p>
+<p>本文主要记录与<code>xcode</code>工程相关的自动化编译过程,为了实现自动化编译的动作，我们使用了<code>xcodebuild</code>工具，
+后续内容主要分为以下几个方面:</p>
 <ul>
-<li>使用<code>xcodebuild</code>编译代码</li>
-<li><code>code sign</code>的基本流程</li>
-<li>通过<code>xcodebuild</code>实现<code>code sign</code></li>
+<li>编译(Build)<ul>
+<li>指定方案(scheme)</li>
+<li>指定工作空间(workspace)  </li>
+<li>修改编译版本(Debug/Release)</li>
+<li>修改编译设置(buildSetting)</li>
+<li>指定输出路径(derived data path)</li>
 </ul>
-<h2 id="xcodebuild"><code>xcodebuild</code>编译代码</h2>
+</li>
+<li>打包(Archive)<ul>
+<li>生成archive文件(file.xcarchive)</li>
+<li>基于archive文件导出其他文件(distributed)</li>
+</ul>
+</li>
+<li>代码签名(Code sign)<ul>
+<li>什么是代码签名</li>
+<li>代码签名的基本流程</li>
+<li>配置<code>xcode</code>实现代码签名</li>
+</ul>
+</li>
+<li>参考文档</li>
+</ul>
+<h2 id="build">编译(Build)</h2>
+<p>在日常使用<code>xcode</code>进行代码开始时,可以选择使用工具栏中提供的<code>Build</code>,<code>Run</code>等按钮来执行代码编译，运行等工作，
+但对于CI/CD而言，我们需要使用命令行工具来完成这些动作，这里我们使用<code>xcodebuild</code>工具。</p>
+<p>编译过程用到了<code>xcodebuild</code>提供的<code>"build"</code> action。</p>
+<ul>
+<li>
+<p>指定方案(scheme)</p>
+<p>通过使用 <code>"-scheme xxx"</code> 配置scheme。</p>
+</li>
+<li>
+<p>指定工作空间(workspace)</p>
+<p>通过使用 <code>"-workspace xxx"</code> 配置workspace。</p>
+</li>
+<li>
+<p>修改编译版本(Debug/Release)</p>
+<p>通过使用 <code>"-configuration xxx"</code> 配置<code>Debug/Release</code>等。</p>
+</li>
+<li>
+<p>指定编译设置(buildSetting)</p>
+<p>通过 <code>"buildsetting=value"</code> 来将某个编译配置设置为某个值。详细内容可以通过 <code>"man xcodebuild"</code>查看。</p>
+</li>
+<li>
+<p>指定输出路径(derived data path)</p>
+<p>通过 <code>"-derivedDataPath xxx"</code> 设置输出路径</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># scheme为myScheme</span>
+<span class="c1"># workspace为myWorkSpace.xcworkspace</span>
+<span class="c1"># configuration为Release</span>
+<span class="c1"># 将编译设置中的DEVELOPMENT_TEAM设置为XXX</span>
+$ xcodebuild -scheme myScheme<span class="se">\</span>
+    -workspace myWorkSpace.xcworkspace/<span class="se">\</span>
+    -configuration Release<span class="se">\</span>
+    <span class="nv">DEVELOPMENT_TEAM</span><span class="o">=</span>XXX<span class="se">\</span>
+    -derivedDataPath <span class="nv">$PWD</span>/build
+</pre></div>
+
+
+<h2 id="archive">打包(Archive)</h2>
+<p><code>xcodebuild</code> 使用 <code>archive</code> 动作来实现打包。</p>
+<ul>
+<li>
+<p>生成archive文件</p>
+<ul>
+<li><code>"-archivePath xxx"</code> 指定生成的archive路径</li>
+<li><code>"-scheme xxx"</code> 指定scheme</li>
+<li><code>"-workspace xxx"</code> 指定workspace</li>
+</ul>
+<blockquote>
+<p>当指定 <code>archive</code> 动作的时候，<code>"-archivePath xxx"</code> 用于指定生成的archive路径。</p>
+<p>当传入了<code>"-exportArchive xxx"</code> 或 <code>"-exportNotarizedApp"</code> 参数时, <code>"-archivePath xxx"</code> 则用于指定需要
+导出的archive路径。</p>
+</blockquote>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># archive指定archive action</span>
+<span class="c1"># scheme为myScheme</span>
+<span class="c1"># workspace为myWorkSpace.xcworkspace/</span>
+$ xcodebuild archive -scheme myScheme -workspace myWorkSpace.xcworkspace/
+</pre></div>
+
+
+<ul>
+<li>根据archive文件导出其他文件(distributed)<ul>
+<li><code>"-exportArchive "</code> 指定archive文件应该被分发(distributed)。</li>
+<li><code>"-archivePath xxx"</code> 指定待分发的archive文件路径</li>
+<li><code>"-exportPath xxx"</code> 指定导出文件的存储路径</li>
+<li><code>"-exportOptionsPlist xxx.plist"</code> 配置导出何种类型文件</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># archive文件为myArchive.xcarchive</span>
+<span class="c1"># 导出文件存储路径exportedFilePath</span>
+<span class="c1"># 配置文件为 myOption.plist</span>
+$ xcodebuild -exportArchive -archivePath myArchive.xcarchive<span class="se">\</span>
+     -exportPath exportedFilePath<span class="se">\</span>
+     -exportOptionsPlist myOption.plist
+</pre></div>
+
+
+<h2 id="code-sign">代码签名(code sign)</h2>
+<h3 id="_2">什么是代码签名</h3>
+<p>代码签名是指通过数学运算对可执行程序和脚本等文件进行<strong>数字签名</strong>，我们使用该<code>数字签名</code>来校验
+该软件的确是软件发布者所发布的软件，在传播过程中没有被中间人进行过修改。</p>
+<h3 id="_3">代码签名的基本流程</h3>
+<p>在介绍后续的代码签名流程之前，我们需要先理解非对称加密的概念。</p>
+<ul>
+<li>
+<p>非对称加密</p>
+<ul>
+<li>公钥</li>
+<li>私钥</li>
+</ul>
+<p>非对称加密中存在<code>公钥-私钥</code>的概念：</p>
+<ul>
+<li>数据通过私钥加密后，只能通过公钥才能解密</li>
+<li>数据通过公钥加密后，只能通过私钥才能解密</li>
+</ul>
+</li>
+</ul>
+<p>当然这里所说的<code>只能通过xxx才能解密</code>是指通过其他方式进行解密会花费及其大的资源。</p>
+<div class="codehilite"><pre><span></span> <span class="n">original</span> <span class="k">data</span>             <span class="k">encrypted</span> <span class="k">data</span>
+<span class="o">+</span><span class="c1">-------------+  encrypted  +--------------+ decrypted   +------------+</span>
+<span class="o">|</span> <span class="n">hello</span>       <span class="o">|</span> <span class="n">private</span> <span class="k">key</span> <span class="o">|</span> <span class="n">xx</span><span class="p">.</span><span class="n">jfslflwef</span> <span class="o">|</span> <span class="k">public</span> <span class="k">key</span>  <span class="o">|</span> <span class="n">hello</span>      <span class="o">|</span>
+<span class="o">|</span>             <span class="o">|</span><span class="c1">-----------&gt; | 90*fsem;wskf |-----------&gt; |            |</span>
+<span class="o">+</span><span class="c1">-------------+             +--------------+             +------------+</span>
+</pre></div>
+
+
+<h2 id="_4">参考文档</h2>
+<ul>
+<li>
+<p>Code Signing Guide:
+https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html</p>
+</li>
+<li>
+<p>Understanding Digital Certificates and Code signing
+https://www.oracle.com/technetwork/java/javase/documentation/digitalcerts-codesigning-4312830.html</p>
+</li>
+</ul>
                 
                   
                 
