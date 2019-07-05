@@ -830,6 +830,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#shell" title="shell脚本中的特殊变量" class="md-nav__link">
+    shell脚本中的特殊变量
+  </a>
+  
+</li>
+      
       
       
       
@@ -906,6 +913,13 @@
         <li class="md-nav__item">
   <a href="#_5" title="变量访问" class="md-nav__link">
     变量访问
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell" title="shell脚本中的特殊变量" class="md-nav__link">
+    shell脚本中的特殊变量
   </a>
   
 </li>
@@ -987,10 +1001,63 @@
 
 <span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;kai.zhou&quot;</span>
 <span class="c1"># 直接访问变量</span>
+<span class="c1"># 输出值为 kai.zhou</span>
 <span class="nb">echo</span> <span class="nv">$NAME</span>
 
 <span class="c1"># 变量的拼接</span>
+<span class="c1"># 输出值为 hello_kai.zhou</span>
 <span class="nb">echo</span> <span class="s2">&quot;hello_</span><span class="si">${</span><span class="nv">NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<h2 id="shell"><code>shell</code>脚本中的特殊变量</h2>
+<table>
+<thead>
+<tr>
+<th>变量名称</th>
+<th>变量含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$0</td>
+<td>目前脚本名称</td>
+</tr>
+<tr>
+<td>$n</td>
+<td>n的值为(1...n), <code>$1</code>代表第一个参数, $2第二个参数...</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>传入的参数总数量</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>上次执行的命令的返回值</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>所有参数一起被双引号包围</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>每个参数单独被双引号包围</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1"># variable.sh</span>
+<span class="nb">echo</span> <span class="s2">&quot;The filename of current script: </span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;The first parameter: </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;The second parameter: </span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;The number of argument supplied to script: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;The exit status of the last command: </span><span class="nv">$?</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;All argument are double quoted: </span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;All arguments are individually double quoted: </span><span class="nv">$@</span><span class="s2">&quot;</span>
 </pre></div>
                 
                   
