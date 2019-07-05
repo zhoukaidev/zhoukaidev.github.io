@@ -823,6 +823,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" title="变量访问" class="md-nav__link">
+    变量访问
+  </a>
+  
+</li>
+      
       
       
       
@@ -896,6 +903,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" title="变量访问" class="md-nav__link">
+    变量访问
+  </a>
+  
+</li>
+      
       
       
       
@@ -964,6 +978,19 @@
 <span class="nb">echo</span> <span class="nv">$COUNTRY</span> 
 <span class="nb">unset</span> COUNTRY
 <span class="nb">echo</span> <span class="nv">$COUNTRY</span>
+</pre></div>
+
+
+<h2 id="_5">变量访问</h2>
+<p>为了访问脚本中定义变量的值,需要在变量名前使用<code>$</code>符号。</p>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;kai.zhou&quot;</span>
+<span class="c1"># 直接访问变量</span>
+<span class="nb">echo</span> <span class="nv">$NAME</span>
+
+<span class="c1"># 变量的拼接</span>
+<span class="nb">echo</span> <span class="s2">&quot;hello_</span><span class="si">${</span><span class="nv">NAME</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
                 
                   
