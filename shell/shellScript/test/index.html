@@ -856,7 +856,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" title="参考手册" class="md-nav__link">
+  <a href="#_7" title="字符串比较运算符" class="md-nav__link">
+    字符串比较运算符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="字符串比较运算符例程" class="md-nav__link">
+    字符串比较运算符例程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="参考手册" class="md-nav__link">
     参考手册
   </a>
   
@@ -956,7 +976,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" title="参考手册" class="md-nav__link">
+  <a href="#_7" title="字符串比较运算符" class="md-nav__link">
+    字符串比较运算符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="字符串比较运算符例程" class="md-nav__link">
+    字符串比较运算符例程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="参考手册" class="md-nav__link">
     参考手册
   </a>
   
@@ -1195,7 +1235,94 @@ $ man <span class="o">[</span>
 </pre></div>
 
 
-<h2 id="_7">参考手册</h2>
+<h2 id="_7">字符串比较运算符</h2>
+<p>针对字符串共有五种比较不同的比较运算符:</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+<th>例程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>两个字符串值是否相同</td>
+<td>[ $A = $B ]</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>两个字符串是否不相同</td>
+<td>[ $A != $B ]</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>字符串长度为0，返回true</td>
+<td>[ -z $A ]</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>字符串长度不为0,返回true</td>
+<td>[ -n $A ]</td>
+</tr>
+<tr>
+<td>str</td>
+<td>str不为空，则返回true</td>
+<td>[ $A ]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">字符串比较运算符例程</h3>
+<ul>
+<li>'<code>=</code>',<code>'!='</code> 运算符</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">A</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span>
+<span class="nv">B</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span>
+<span class="nv">C</span><span class="o">=</span><span class="s2">&quot;world&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$A</span> <span class="o">=</span> <span class="nv">$B</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is equal to B&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A = B = </span><span class="nv">$A</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is not equal to B&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A = </span><span class="nv">$A</span><span class="s2">, B = </span><span class="nv">$B</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$B</span> !<span class="o">=</span> <span class="nv">$C</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;B is not equal to C&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;B = </span><span class="nv">$B</span><span class="s2">, C = </span><span class="nv">$C</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;B is equal to C&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;B = C = </span><span class="nv">$B</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+
+
+<ul>
+<li><code>'-z'</code>,<code>'-n'</code> 运算符</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">A</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span>
+<span class="nv">B</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="k">if</span> <span class="o">[</span> -n <span class="nv">$A</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A&#39;s lenght is greater than zero&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A&#39;s length is zero&quot;</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="nv">$B</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>  
+    <span class="nb">echo</span> <span class="s2">&quot;B&#39;s length is zero&quot;</span>
+<span class="k">else</span> 
+    <span class="nb">echo</span> <span class="s2">&quot;B&#39;s length is greater than zero&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+
+
+<h2 id="_9">参考手册</h2>
 <ul>
 <li><a href="https://www.tutorialspoint.com/unix/unix-basic-operators.htm">shell Basic Operator</a></li>
 <li><a href="https://www.shellscript.sh/test.html">shell scripting Tutorial/Test</a></li>
