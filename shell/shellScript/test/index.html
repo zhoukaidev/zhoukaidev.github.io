@@ -820,10 +820,23 @@
     数字类型运算符
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="数字类型运算符例程" class="md-nav__link">
+    数字类型运算符例程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="参考手册" class="md-nav__link">
+  <a href="#_5" title="参考手册" class="md-nav__link">
     参考手册
   </a>
   
@@ -887,10 +900,23 @@
     数字类型运算符
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="数字类型运算符例程" class="md-nav__link">
+    数字类型运算符例程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="参考手册" class="md-nav__link">
+  <a href="#_5" title="参考手册" class="md-nav__link">
     参考手册
   </a>
   
@@ -1008,7 +1034,59 @@ $ man <span class="o">[</span>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">参考手册</h2>
+<h3 id="_4">数字类型运算符例程</h3>
+<ul>
+<li><code>'-eq'</code>,<code>'-ne'</code> 操作符</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">A</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">B</span><span class="o">=</span><span class="m">10</span>
+<span class="c1"># 比较A与B的值是否相等</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$A</span> -eq <span class="nv">$B</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is equal to B&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is not equal to B&quot;</span>
+<span class="k">fi</span>
+
+<span class="nv">C</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">D</span><span class="o">=</span><span class="m">20</span>
+<span class="c1"># 比较C与D的值是否不相等</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$C</span> -ne <span class="nv">$D</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;C is not equal to D&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;C is equal to D&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+
+
+<ul>
+<li><code>'-gt'</code>,<code>'-lt'</code> 操作符</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">A</span><span class="o">=</span><span class="m">20</span>
+<span class="nv">B</span><span class="o">=</span><span class="m">10</span>
+<span class="c1"># 比较A与B的值是否相等</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$A</span> -gt <span class="nv">$B</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is greater than to B&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is not greater than to B&quot;</span>
+<span class="k">fi</span>
+
+<span class="nv">C</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">D</span><span class="o">=</span><span class="m">20</span>
+<span class="c1"># 比较C与D的值是否不相等</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$C</span> -lt <span class="nv">$D</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;C is less than to D&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;C is not less than to D&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+
+
+<ul>
+<li><code>'-ge'</code>,<code>'-le'</code>类似</li>
+</ul>
+<h2 id="_5">参考手册</h2>
 <ul>
 <li><a href="https://www.tutorialspoint.com/unix/unix-basic-operators.htm">shell Basic Operator</a></li>
 <li><a href="https://www.shellscript.sh/test.html">shell scripting Tutorial/Test</a></li>
