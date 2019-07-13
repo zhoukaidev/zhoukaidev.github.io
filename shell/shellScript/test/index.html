@@ -802,6 +802,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" title="'['指令" class="md-nav__link">
+    '['指令
+  </a>
+  
+</li>
+      
       
       
       
@@ -825,6 +832,36 @@
                 
                 <h2 id="_1">简介</h2>
 <p>该文档用于介绍<code>shell script</code>中用于条件判断的相关语法及规则。</p>
+<p>在shell脚本中我们我们会经常使用判断语句，例如判断字符串是否为空，判断两个整数是否相同等等。
+这里经常使用的就是<code>test</code>命令, 但是在shell脚本中, 我们很少可以看到<code>test</code>命令，因为<code>test</code>
+指令有另外一个别名<code>[</code>。</p>
+<h2 id="_2">'['指令</h2>
+<p>在讲解<code>shell脚本</code>中条件判断之前，我们需要先了解有关<code>'['</code>指令的相关信息。</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">type</span> <span class="o">[</span>  <span class="c1"># 看到&#39;[&#39;是一个shell内置指令</span>
+<span class="o">[</span> is a shell <span class="nb">builtin</span>
+
+$ which <span class="o">[</span>
+/usr/bin/<span class="o">[</span>
+
+<span class="c1">#查看关于&#39;[&#39;指令的介绍</span>
+$ man <span class="o">[</span> 
+...
+</pre></div>
+
+
+<p>从这里可以看出, <code>'['</code>实际上为shell的内置指令，所以当使用该指令的时候，必须在该指令
+后面放置空格。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 在这个指令中, &#39;[&#39;与&#39;$foo&#39;之间不包含空格，所以不能正常工作</span>
+<span class="c1"># 因为&#39;[&#39;本身是一个内置指令</span>
+<span class="o">[</span><span class="nv">$foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span> <span class="o">]</span>
+</pre></div>
+
+
+<p>此处需要修改为:</p>
+<div class="codehilite"><pre><span></span><span class="c1"># &#39;[&#39;与&#39;$foo&#39;之间需要包含空格</span>
+<span class="c1"># 意味着在调用指令及传入相应的参数</span>
+<span class="o">[</span> <span class="nv">$foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span> <span class="o">]</span>
+</pre></div>
                 
                   
                 
