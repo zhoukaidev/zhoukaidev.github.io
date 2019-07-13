@@ -809,8 +809,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="'['指令" class="md-nav__link">
-    '['指令
+  <a href="#_2" title="'[' 指令" class="md-nav__link">
+    '[' 指令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="数字类型运算符" class="md-nav__link">
+    数字类型运算符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="参考手册" class="md-nav__link">
+    参考手册
   </a>
   
 </li>
@@ -862,8 +876,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="'['指令" class="md-nav__link">
-    '['指令
+  <a href="#_2" title="'[' 指令" class="md-nav__link">
+    '[' 指令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="数字类型运算符" class="md-nav__link">
+    数字类型运算符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="参考手册" class="md-nav__link">
+    参考手册
   </a>
   
 </li>
@@ -894,7 +922,7 @@
 <p>在shell脚本中我们我们会经常使用判断语句，例如判断字符串是否为空，判断两个整数是否相同等等。
 这里经常使用的就是<code>test</code>命令, 但是在shell脚本中, 我们很少可以看到<code>test</code>命令，因为<code>test</code>
 指令有另外一个别名<code>[</code>。</p>
-<h2 id="_2">'['指令</h2>
+<h2 id="_2">'[' 指令</h2>
 <p>在讲解<code>shell脚本</code>中条件判断之前，我们需要先了解有关<code>'['</code>指令的相关信息。</p>
 <div class="codehilite"><pre><span></span>$ <span class="nb">type</span> <span class="o">[</span>  <span class="c1"># 看到&#39;[&#39;是一个shell内置指令</span>
 <span class="o">[</span> is a shell <span class="nb">builtin</span>
@@ -903,7 +931,7 @@ $ which <span class="o">[</span>
 /usr/bin/<span class="o">[</span>
 
 <span class="c1">#查看关于&#39;[&#39;指令的介绍</span>
-$ man <span class="o">[</span> 
+$ man <span class="o">[</span>
 ...
 </pre></div>
 
@@ -921,6 +949,45 @@ $ man <span class="o">[</span>
 <span class="c1"># 意味着在调用指令及传入相应的参数</span>
 <span class="o">[</span> <span class="nv">$foo</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span> <span class="o">]</span>
 </pre></div>
+
+
+<h2 id="_3">数字类型运算符</h2>
+<p><code>'['</code> 指令包含一些针对数字类型进行支持的操作符。这些操作符对于字符串类型不支持。</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+<th>例程</th>
+<th>英文记忆</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-eq</td>
+<td>比较两个值是否相等,相等则返回true</td>
+<td>[ $a -eq $b ]</td>
+<td>equal</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>比较两个值是否相等，相等则返回false</td>
+<td>[ $a -ne $b ]</td>
+<td>not equal</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>比较两个值的大小，左值大于右值，则返回true</td>
+<td>[ $a -gt $b ]</td>
+<td>greater than</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">参考手册</h2>
+<ul>
+<li><a href="https://www.tutorialspoint.com/unix/unix-basic-operators.htm">shell Basic Operator</a></li>
+<li><a href="https://www.shellscript.sh/test.html">shell scripting Tutorial/Test</a></li>
+</ul>
                 
                   
                 
