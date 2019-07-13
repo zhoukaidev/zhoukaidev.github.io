@@ -836,7 +836,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="参考手册" class="md-nav__link">
+  <a href="#_5" title="布尔运算符" class="md-nav__link">
+    布尔运算符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="布尔运算符例程" class="md-nav__link">
+    布尔运算符例程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="参考手册" class="md-nav__link">
     参考手册
   </a>
   
@@ -916,7 +936,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="参考手册" class="md-nav__link">
+  <a href="#_5" title="布尔运算符" class="md-nav__link">
+    布尔运算符
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="布尔运算符例程" class="md-nav__link">
+    布尔运算符例程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="参考手册" class="md-nav__link">
     参考手册
   </a>
   
@@ -1086,7 +1126,76 @@ $ man <span class="o">[</span>
 <ul>
 <li><code>'-ge'</code>,<code>'-le'</code>类似</li>
 </ul>
-<h2 id="_5">参考手册</h2>
+<h2 id="_5">布尔运算符</h2>
+<p><code>'['</code> 指令支持 <strong>与</strong>，<strong>或</strong>，<strong>非</strong> 运算符。</p>
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>描述</th>
+<th>例程</th>
+<th>比较符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>!</td>
+<td>非运算符</td>
+<td>[ ! false ]</td>
+<td>!</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>或运算符</td>
+<td>[ $a -eq $b -o $c -eq $d ]</td>
+<td>||</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>与运算符</td>
+<td>[ $a -eq $b -a $c -eq $d ]</td>
+<td>&amp;&amp;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">布尔运算符例程</h3>
+<ul>
+<li><code>'!'</code> 运算符</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1">#/bin/bash</span>
+<span class="nv">A</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">B</span><span class="o">=</span><span class="m">10</span>
+<span class="k">if</span> <span class="o">[</span> ! <span class="nv">$A</span> -eq <span class="nv">$B</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is not equal to B&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A is equal to B&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+
+
+<ul>
+<li><code>'-o'</code>, <code>'-a'</code> 运算符</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nv">A</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">B</span><span class="o">=</span><span class="m">20</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$A</span> -eq <span class="m">10</span> -o <span class="nv">$B</span> -eq <span class="m">10</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A = 10 or B = 10&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A !=10 and B != 10&quot;</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$A</span> -eq <span class="m">10</span> -a <span class="nv">$B</span> -eq <span class="m">20</span><span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A = 10 and B = 20&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;A != 10 or B !=20&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+
+
+<h2 id="_7">参考手册</h2>
 <ul>
 <li><a href="https://www.tutorialspoint.com/unix/unix-basic-operators.htm">shell Basic Operator</a></li>
 <li><a href="https://www.shellscript.sh/test.html">shell scripting Tutorial/Test</a></li>
