@@ -806,6 +806,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="定义函数" class="md-nav__link">
+    定义函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="函数参数" class="md-nav__link">
+    函数参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="函数返回值" class="md-nav__link">
+    函数返回值
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -822,7 +852,7 @@
                 <h1 id="_1">简介</h1>
 <p>在编写<code>shell</code>脚本的过程中,经常会遇到需要重复使用某一块的代码，例如检查某个指令的返回值并根据返回值不同打印出相应的消息。</p>
 <p>这时候需要通过<code>函数</code>来实现代码的重用。</p>
-<h1 id="_2">定义函数</h1>
+<h2 id="_2">定义函数</h2>
 <div class="codehilite"><pre><span></span>function_name<span class="o">()</span> <span class="o">{</span>
     <span class="c1"># function body</span>
 <span class="o">}</span>
@@ -842,7 +872,7 @@ printLog<span class="o">()</span> <span class="o">{</span>
 </pre></div>
 
 
-<h1 id="_3">函数参数</h1>
+<h2 id="_3">函数参数</h2>
 <p>在函数内部使用 <code>$1, $2,...$N</code> 来访问传入的不同的参数,其中<code>$1</code>代表第一个参数, <code>$N</code>代表第N个参数。</p>
 <div class="codehilite"><pre><span></span><span class="k">function</span> printParameters<span class="o">(){</span>
     <span class="nb">echo</span> <span class="s2">&quot;First parameter: </span><span class="nv">$1</span><span class="s2">&quot;</span>
@@ -857,7 +887,45 @@ printParameters hello world
 </pre></div>
 
 
-<h1 id="_4">函数返回值</h1>
+<h2 id="_4">函数返回值</h2>
+<p>在<code>shell script</code>中，共有两种方式用于从一个函数中返回:</p>
+<ul>
+<li>通过 <code>exit</code> 命令使得函数返回</li>
+<li>通过 <code>return</code> 指令从函数内返回</li>
+</ul>
+<p>在以上的两种返回方式中存在一些区别:</p>
+<ol>
+<li>当使用 <code>exit</code> 命令返回时，会终止整个脚本的执行,意味着该脚本后续的指令将不再执行</li>
+<li>当使用 <code>return</code> 命令返回时，只结束该函数的执行，函数后面的指令继续执行</li>
+</ol>
+<p><strong>例程:</strong></p>
+<div class="codehilite"><pre><span></span>ret_by_return<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;terminate function by return statement&quot;</span>
+    <span class="k">return</span> <span class="m">0</span>
+<span class="o">}</span>
+
+ret_by_exit<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;terminate function by exit statement&quot;</span>
+    <span class="nb">exit</span> <span class="m">0</span>
+<span class="o">}</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;invoke ret_by_return function&quot;</span>
+ret_by_return
+<span class="nb">echo</span> <span class="s2">&quot;end ret_by_return function&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;invoke ret_by_exit function&quot;</span>
+ret_by_exit
+<span class="nb">echo</span> <span class="s2">&quot;end ret_by_exit function&quot;</span>
+
+<span class="c1"># 输出值</span>
+<span class="c1"># invoke ret_by_return function</span>
+<span class="c1"># terminate function by return function</span>
+<span class="c1"># end ret_by_return function</span>
+<span class="c1"># invoke ret_by_exit function</span>
+<span class="c1"># terminate function by exit statement</span>
+</pre></div>
+
+
+<p>在以上的脚本中我们注意到 <code>echo "end return_by_exit function"</code> 命令并没有执行，应为 <code>ret_by_exit</code> 函数中调用 <code>exit</code> 指令进行函数返回。</p>
                 
                   
                 
