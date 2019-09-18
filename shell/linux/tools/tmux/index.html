@@ -883,15 +883,43 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    用法
+    指令集合
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pane" class="md-nav__link">
-    修改pane大小
+  <a href="#attach-session" class="md-nav__link">
+    attach session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detach-session" class="md-nav__link">
+    detach session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-session" class="md-nav__link">
+    manage session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-pane" class="md-nav__link">
+    create pane
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resize-pane" class="md-nav__link">
+    resize pane
   </a>
   
 </li>
@@ -922,8 +950,102 @@
                 
                 <h1 id="_1">简介</h1>
 <p>本文用于记录<code>tmux</code>的相关用法。</p>
-<h2 id="_2">用法</h2>
-<h3 id="pane">修改<code>pane</code>大小</h3>
+<h2 id="_2">指令集合</h2>
+<p>本文主要介绍以下分类:</p>
+<ul>
+<li>attach session</li>
+<li>detach session</li>
+<li>create pane</li>
+<li>manage session<ul>
+<li>create session</li>
+<li>kill session</li>
+</ul>
+</li>
+<li>resize pane</li>
+</ul>
+<h3 id="attach-session">attach session</h3>
+<p>与<code>attach session</code>有关的指令如下:</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tmux ls</code></td>
+<td>显示目前所有的<code>session</code></td>
+</tr>
+<tr>
+<td><code>tmux attach -t [sessionNumber]</code></td>
+<td>根据<em>session number</em>链接session</td>
+</tr>
+</tbody>
+</table>
+<h3 id="detach-session">detach session</h3>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tmux detach</code></td>
+<td>与当前的<code>session</code>断开连接</td>
+</tr>
+<tr>
+<td><code>"Ctrl+b"</code> -&gt; d</td>
+<td>使用快捷键断开<code>session</code>连接，先按<code>Ctrl+b</code>,松开后按<code>d</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="manage-session">manage session</h3>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tmux kill-server</code></td>
+<td>kill server,删除所有的<code>session</code></td>
+</tr>
+<tr>
+<td>在默认终端中输入<code>tmux</code></td>
+<td>创建一个新的session</td>
+</tr>
+</tbody>
+</table>
+<h3 id="create-pane">create pane</h3>
+<p>在一个<code>session</code>中，我们可以创建多个<code>pane</code>来同时进行工作</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"Ctrl+b"</code> -&gt; %</td>
+<td>垂直切分window</td>
+</tr>
+<tr>
+<td><code>"Ctrl+b"</code> -&gt; "</td>
+<td>水平切分window</td>
+</tr>
+<tr>
+<td><code>"Ctrl+b"</code> -&gt; arrow</td>
+<td>在多个<code>pane</code>中切换焦点</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resize-pane">resize pane</h3>
 <ol>
 <li>按住<code>Ctrl+b</code>的同时，快速按<code>左键</code>或<code>右键</code>调节宽度</li>
 </ol>
