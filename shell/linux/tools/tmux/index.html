@@ -911,13 +911,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-pane" class="md-nav__link">
-    create pane
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#resize-pane" class="md-nav__link">
     resize pane
   </a>
@@ -1034,9 +1027,16 @@
 <td><code>tmux new-session -s mysession</code></td>
 <td>创建新的<code>session</code>,并命名为<code>mysession</code></td>
 </tr>
+<tr>
+<td><code>tmux new -s mysession</code></td>
+<td>同 <code>tmux new-session -s mysession</code></td>
+</tr>
+<tr>
+<td>### create pane</td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<h3 id="create-pane">create pane</h3>
 <p>在一个<code>session</code>中，我们可以创建多个<code>pane</code>来同时进行工作</p>
 <table>
 <thead>
