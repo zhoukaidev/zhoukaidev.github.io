@@ -1058,7 +1058,7 @@
 <h2 id="tar">tar</h2>
 <ul>
 <li><code>tar [-z | -j | -J] [cv] [-f 新文件名] 待打包文件</code> #打包与压缩</li>
-<li><code>tar [-z | -j | -J] [tv] [-f 新文件名] 待打包文件</code> #查看内部文件名</li>
+<li><code>tar [-z | -j | -J] [tv] [-f 新文件名] tar文件名</code> #查看内部文件名</li>
 <li><code>tar [-z | -j | -J] [xv] [-f 新文件名] tar文件名 [-C 目录]</code> #解压缩及解包</li>
 </ul>
 <table>
@@ -1096,6 +1096,10 @@
 <tr>
 <td><code>-C --directory=DIR</code></td>
 <td>切换到DIR目录下进行解压缩动作</td>
+</tr>
+<tr>
+<td><code>-t --list</code></td>
+<td>列出打包文件里的内容</td>
 </tr>
 </tbody>
 </table>
