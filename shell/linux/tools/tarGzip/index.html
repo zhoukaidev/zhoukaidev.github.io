@@ -1059,7 +1059,7 @@
 <ul>
 <li><code>tar [-z | -j | -J] [cv] [-f 新文件名] 待打包文件</code> #打包与压缩</li>
 <li><code>tar [-z | -j | -J] [tv] [-f 新文件名] 待打包文件</code> #查看内部文件名</li>
-<li><code>tar [-z | -j | -J] [xv] [-f 新文件名] 待打包文件</code> #解压缩及解包</li>
+<li><code>tar [-z | -j | -J] [xv] [-f 新文件名] tar文件名 [-C 目录]</code> #解压缩及解包</li>
 </ul>
 <table>
 <thead>
@@ -1083,15 +1083,19 @@
 </tr>
 <tr>
 <td><code>-z</code></td>
-<td>gzip进行压缩或解压缩, *.tar.gz</td>
+<td>gzip进行压缩或解压缩, .tar.gz</td>
 </tr>
 <tr>
 <td><code>-j</code></td>
-<td>bzip2压缩或解压缩, *.tar.bz2</td>
+<td>bzip2压缩或解压缩, .tar.bz2</td>
 </tr>
 <tr>
 <td><code>-J</code></td>
-<td>xz进行压缩或解压缩, *.tar.xz</td>
+<td>xz进行压缩或解压缩, .tar.xz</td>
+</tr>
+<tr>
+<td><code>-C --directory=DIR</code></td>
+<td>切换到DIR目录下进行解压缩动作</td>
 </tr>
 </tbody>
 </table>
