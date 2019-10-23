@@ -1030,6 +1030,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    位置参数+命名参数(限制参数名称)
+  </a>
+  
+</li>
+      
       
       
       
@@ -1056,6 +1063,7 @@
 <li>可变参数</li>
 <li>默认参数</li>
 <li>命名参数(关键字参数)</li>
+<li>位置参数+命名参数(限制参数名称)</li>
 </ul>
 <h2 id="_2">位置参数</h2>
 <p>位置参数是最直接也最简单的,需要做的就是根据自己的需求定义所需要的参数。</p>
@@ -1121,6 +1129,30 @@
 
 
 <p>从以上打印的结果可以看出命名参数在函数内部是以<code>dictionary</code>形式存在的。</p>
+<h2 id="_6">位置参数+命名参数(限制参数名称)</h2>
+<p>在定义该类型函数的时候，需要使用<code>*</code>作为分隔符，例程如下:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">person</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">city</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;name:&quot;</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;age:&quot;</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;city:&quot;</span><span class="p">,</span><span class="n">city</span><span class="p">)</span>
+
+<span class="c1"># 函数调用</span>
+<span class="c1"># name,age为位置参数</span>
+<span class="c1"># city为命名关键字参数</span>
+<span class="n">person</span><span class="p">(</span><span class="s2">&quot;spider&quot;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><code>python</code>提供的<code>subprocess.run</code>函数原型如下:</p>
+<div class="codehilite"><pre><span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>在<code>subprocess.run</code>函数原型中可以看到:</p>
+<ul>
+<li><code>args</code>为位置参数</li>
+<li><code>*</code>符号后面的命名关键字参数，其中参数名称已经被指定</li>
+</ul>
                 
                   
                 
