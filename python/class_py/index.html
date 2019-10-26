@@ -1168,6 +1168,53 @@
 
 
 <h2 id="_3">继承</h2>
+<p>在继承体系中分为<code>父类</code>与<code>子类</code>，子类可以继承父类的属性与方法，并在此基础上添加属于自己的独特方法。</p>
+<p>比如我们有一个<code>Person</code>类，用来标识人类的通用的一些属性及方法，比如年龄，性别等。</p>
+<p><code>Student</code>类可以继承<code>Person</code>类，并在此的基础上添加<code>学号</code>,<code>班级</code>等属性及一些独特的方法。</p>
+<p>首先我们定义一个<code>Person</code>类:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">goHome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Person is go home...&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>我们来定义一个<code>Student</code>类，该类继承自<code>Person</code>:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+
+<p>我们定义了<code>Student</code>类，在该类内部并没有定义任何函数，但依然可以继承<code>Person</code>的<code>goHome</code>方法。</p>
+<div class="codehilite"><pre><span></span><span class="c1">#例程</span>
+<span class="c1"># 定义Person类，并调用goHome</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">goHome</span><span class="p">()</span>
+<span class="c1"># 定义Student类，并调用goHome</span>
+<span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">()</span>
+<span class="n">stu</span><span class="o">.</span><span class="n">goHome</span><span class="p">()</span>
+</pre></div>
+
+
+<p>上面我们介绍了继承最基本的概念，有没有注意到上面我们并没有添加构造函数这些。
+现在我们把<code>委托构造函数</code>加进来。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 在构造Person类的时候，需要提供`name`,`age`</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="c1"># 相比于`Person`类，`Student`类添加了`studentId`属性</span>
+<span class="c1"># 在Student的构造函数里，我们调用了Person的构造函数，来添加Student的name,age属性</span>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">studentId</span><span class="p">):</span>
+        <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">studentId</span> <span class="o">=</span> <span class="n">studentId</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;spider man&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;spider man2&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;201203&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Person: &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Student: &quot;</span><span class="p">,</span> <span class="n">stu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">stu</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">stu</span><span class="o">.</span><span class="n">studentId</span><span class="p">)</span>
+</pre></div>
                 
                   
                 
