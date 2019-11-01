@@ -1031,13 +1031,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    数组长度
+    数组操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    数组长度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     访问数组元素
   </a>
   
@@ -1124,13 +1131,20 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    数组长度
+    数组操作
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    数组长度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     访问数组元素
   </a>
   
@@ -1171,7 +1185,22 @@
 </pre></div>
 
 
-<h2 id="_3">数组长度</h2>
+<h2 id="_3">数组操作</h2>
+<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="nv">ARRAY</span><span class="o">=(</span>varialbe1 variable2 variable3<span class="o">)</span>
+<span class="c1"># 数组中的所有元素</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[*]</span><span class="si">}</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">ARRAY</span><span class="p">[@]</span><span class="si">}</span>
+<span class="c1">#数组中的所有下标</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="p">!ARRAY[*]</span><span class="si">}</span>
+<span class="c1"># 数组的长度</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">ARRAY</span><span class="p">[*]</span><span class="si">}</span>
+<span class="c1"># ARRAY[0]的长度</span>
+<span class="nb">echo</span> <span class="si">${#</span><span class="nv">ARRAY</span><span class="p">[0]</span><span class="si">}</span>
+</pre></div>
+
+
+<h2 id="_4">数组长度</h2>
 <div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
 
 <span class="nv">ARRAY</span><span class="o">=(</span>variable1 variable2 variable3<span class="o">)</span>
@@ -1179,7 +1208,7 @@
 </pre></div>
 
 
-<h2 id="_4">访问数组元素</h2>
+<h2 id="_5">访问数组元素</h2>
 <div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
 <span class="c1">#使用下标的方式访问数组元素</span>
 <span class="nv">ARRAY</span><span class="o">=(</span>variable1 variable2 variable3<span class="o">)</span>
