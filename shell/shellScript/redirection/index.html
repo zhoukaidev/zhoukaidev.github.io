@@ -1135,6 +1135,26 @@
     输出重定向
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文件描述符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    总结
+  </a>
+  
 </li>
       
       
@@ -1195,6 +1215,26 @@
     输出重定向
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文件描述符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    总结
+  </a>
+  
 </li>
       
       
@@ -1251,6 +1291,38 @@
 </tr>
 </tbody>
 </table>
+<h3 id="_3">文件描述符</h3>
+<p>文件描述符是使用一个正数来表示一个打开的文件，前面所说的<code>STDOUT</code>及<code>STDERR</code>也有各自的
+文件描述符。</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>描述符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STDOUT</td>
+<td>1</td>
+</tr>
+<tr>
+<td>STDERR</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>当需要同时重定向<code>STDOUT</code>和<code>STDERR</code>时，可以使用如下语法:</p>
+<div class="codehilite"><pre><span></span>ls dir1/ dir2/ &gt; contents.txt <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</pre></div>
+
+
+<h2 id="_4">总结</h2>
+<ul>
+<li><code>&gt;</code> 为<code>STDOUT</code>重定向符， <code>&gt;&gt;</code>将<code>STDOUT</code>输出追加到一个文件中</li>
+<li><code>2&gt;</code>为<code>STDERR</code>重定向符, <code>2&gt;&gt;</code>将<code>STDERR</code>输出追加到一个文件中</li>
+<li><code>&gt;&amp;</code>为将一个输出重定向到另外一个输出, <code>2&gt;&amp;1</code>代表将<code>STDERR</code>输出重定向到<code>STDOUT</code>, <code>1&gt;&amp;2</code>与之相反。</li>
+</ul>
                 
                   
                 
