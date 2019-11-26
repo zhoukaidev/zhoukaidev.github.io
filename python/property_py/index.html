@@ -1244,14 +1244,14 @@
 
 <span class="n">s1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;s1 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;s2 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s2</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s1 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s2 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s2</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
 
 <span class="c1"># 修改s1的name,age属性</span>
 <span class="n">s1</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">28</span>
 <span class="n">s1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;tom&#39;</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;s1 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;s2 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s2</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s1 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s2 name: </span><span class="si">%s</span><span class="s1">, age: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s2</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">s2</span><span class="o">.</span><span class="n">age</span><span class="p">))</span>
 </pre></div>
 
 
@@ -1277,9 +1277,9 @@
         <span class="n">Student</span><span class="o">.</span><span class="n">_count</span> <span class="o">=</span> <span class="n">Student</span><span class="o">.</span><span class="n">_count</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="n">s1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;tom1&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">_count</span><span class="p">)</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;tom2&#39;</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">_count</span><span class="p">)</span>
 </pre></div>
 
 

@@ -1194,17 +1194,17 @@
 <ul>
 <li>声明语法</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="n">Classname</span><span class="p">();</span>
-<span class="o">//</span><span class="err">这里的</span><span class="ss">&quot;int a = 0&quot;</span><span class="err">可以替换成其他任何类型的默认参数</span>
-<span class="n">Classname</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span> 
+<div class="codehilite"><pre><span></span><span class="err">Classname();</span>
+<span class="err">//这里的&quot;int a = 0&quot;可以替换成其他任何类型的默认参数</span>
+<span class="err">Classname(int a = 0); </span>
 </pre></div>
 
 
 <ul>
 <li>定义语法</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="n">Classname</span><span class="p">::</span><span class="n">Classname</span><span class="p">()</span><span class="err">{</span><span class="p">...</span><span class="err">}</span>
-<span class="n">Classname</span><span class="p">::</span><span class="n">Classname</span><span class="p">(</span><span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="err">{</span><span class="p">...</span><span class="err">}</span>
+<div class="codehilite"><pre><span></span><span class="c">Classname::Classname(){...}</span>
+<span class="c">Classname::Classname(int a = 0){...}</span>
 </pre></div>
 
 

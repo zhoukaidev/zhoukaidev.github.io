@@ -1275,15 +1275,15 @@
 
  <span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
          <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Animal is running...&quot;</span><span class="p">)</span>
+                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Animal is running...&quot;</span><span class="p">)</span>
 
  <span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
          <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Cat is running...&quot;</span><span class="p">)</span>
+                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cat is running...&quot;</span><span class="p">)</span>
 
  <span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
          <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Dog is running...&quot;</span><span class="p">)</span>
+                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dog is running...&quot;</span><span class="p">)</span>
 
  <span class="k">def</span> <span class="nf">running</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
          <span class="n">animal</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -1305,7 +1305,7 @@
 <p>那我们如果传入的对象并不是<code>Animal</code>类型，该函数运行会出错吗?</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Car is running...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Car is running...&quot;</span><span class="p">)</span>
 
 <span class="n">car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
 <span class="n">running</span><span class="p">(</span><span class="n">car</span><span class="p">)</span>

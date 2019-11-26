@@ -1432,11 +1432,11 @@ $ xcodebuild -exportArchive -archivePath myArchive.xcarchive<span class="se">\</
 </li>
 </ul>
 <p>当然这里所说的<code>只能通过xxx才能解密</code>是指通过其他方式进行解密会花费及其大的资源。</p>
-<div class="codehilite"><pre><span></span> <span class="n">original</span> <span class="k">data</span>             <span class="k">encrypted</span> <span class="k">data</span>
-<span class="o">+</span><span class="c1">-------------+  encrypted  +--------------+ decrypted   +------------+</span>
-<span class="o">|</span> <span class="n">hello</span>       <span class="o">|</span> <span class="n">private</span> <span class="k">key</span> <span class="o">|</span> <span class="n">xx</span><span class="p">.</span><span class="n">jfslflwef</span> <span class="o">|</span> <span class="k">public</span> <span class="k">key</span>  <span class="o">|</span> <span class="n">hello</span>      <span class="o">|</span>
-<span class="o">|</span>             <span class="o">|</span><span class="c1">-----------&gt; | 90*fsem;wskf |-----------&gt; |            |</span>
-<span class="o">+</span><span class="c1">-------------+             +--------------+             +------------+</span>
+<div class="codehilite"><pre><span></span><span class="err"> original data             encrypted data</span>
+<span class="err">+-------------+  encrypted  +--------------+ decrypted   +------------+</span>
+<span class="err">| hello       | private key | xx.jfslflwef | public key  | hello      |</span>
+<span class="err">|             |-----------&gt; | 90*fsem;wskf |-----------&gt; |            |</span>
+<span class="err">+-------------+             +--------------+             +------------+</span>
 </pre></div>
 
 
