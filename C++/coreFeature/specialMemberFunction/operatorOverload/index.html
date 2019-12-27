@@ -1172,6 +1172,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
       
       
       
@@ -1235,10 +1242,55 @@
 </pre></div>
 
 
-<p><code>string</code>类中对这些操作符进行了重载,使得对于<code>string</code>对象的使用自然，直接。</p>
+<p><code>string</code>类中对这些操作符进行了重载, 当使用这些操作符的时候,实际上是在调用以上的这些函数,使得对于<code>string</code>对象的使用自然，直接。</p>
 <h2 id="stdshared_ptr">std::shared_ptr中的操作符</h2>
-<div class="codehilite"><pre><span></span>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+    <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">make_shared</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+
+    <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">).</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="o">*</span><span class="n">ptr</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
+
+
+<ol>
+<li>ptr为<code>shared_ptr&lt;vecotr&lt;int&gt;&gt;</code>类型对象，ptr内部管理的是<code>vector&lt;int&gt;</code>类型的指针, 注意这里的<code>ptr</code>是个对象，内部包含一个指针</li>
+<li><code>ptr-&gt;push_back(1)</code>的使用是不是感觉<code>ptr</code>是一个<code>vector&lt;int&gt;</code>类型的指针，并不是所谓的<code>shared_ptr</code>对象</li>
+<li><code>(*ptr).push_back(2)</code>的使用是不是也感觉<code>ptr</code>就是<code>vector&lt;int&gt;</code>类型的指针</li>
+</ol>
+<p>对<code>ptr</code>如此直接自然的使用，背后其实也是<code>操作符重载</code>在捣鬼。</p>
+<p>看一下<code>shared_ptr</code>中对<code>*</code>及 <code>-&gt;</code>操作符的重载:</p>
+<div class="codehilite"><pre><span></span><span class="c1">// 对 &quot;*&quot; 的重载</span>
+<span class="n">T</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+<span class="c1">// 对 &quot;-&gt;&quot; 的重载</span>
+<span class="n">T</span><span class="o">*</span> <span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+</pre></div>
+
+
+<p><code>ptr-&gt;push_back(1)</code>的背后是调用了重载的<code>-&gt;</code>操作符:</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">ptr</span><span class="p">.</span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">())</span><span class="o">-&gt;</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+
+
+<p><code>(*ptr).push_back(2)</code>是调用了重载的<code>*</code>操作符:</p>
+<div class="codehilite"><pre><span></span><span class="p">(</span><span class="n">ptr</span><span class="p">.</span><span class="n">operatro</span><span class="o">*</span><span class="p">()).</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+
+
+<p>看似简单直接的调用实际上背后却发生了很多的事情，不容易发现，但确实在发生，这就是操作符重载的魅力。</p>
+<h2 id="_2">总结</h2>
+<p>大概介绍了一些标准库中使用的<code>操作符重载</code>，让我们有了一个直观的感受，后面几篇文章会详细介绍如何来实现操作符重载。</p>
                 
                   
                 
