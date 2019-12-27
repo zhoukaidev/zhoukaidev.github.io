@@ -1361,10 +1361,14 @@
 
 
 <ol>
-<li>ptr为<code>shared_ptr&lt;vecotr&lt;int&gt;&gt;</code>类型对象，ptr内部管理的是<code>vector&lt;int&gt;</code>类型的指针, 注意这里的<code>ptr</code>是个对象，内部包含一个指针</li>
+<li>ptr为<code>shared_ptr&lt;vecotr&lt;int&gt;&gt;</code>类型对象，ptr内部管理的是<code>vector&lt;int&gt;</code>类型的指针</li>
 <li><code>ptr-&gt;push_back(1)</code>的使用是不是感觉<code>ptr</code>是一个<code>vector&lt;int&gt;</code>类型的指针，并不是所谓的<code>shared_ptr</code>对象</li>
 <li><code>(*ptr).push_back(2)</code>的使用是不是也感觉<code>ptr</code>就是<code>vector&lt;int&gt;</code>类型的指针</li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note<p>以上的<code>ptr</code>是个<code>shared_ptr</code>类型对象，内部包含一个指针</p>
+</p>
+</div>
 <p>对<code>ptr</code>如此直接自然的使用，背后其实也是<code>操作符重载</code>在捣鬼。</p>
 <p>看一下<code>shared_ptr</code>中对<code>*</code>及 <code>-&gt;</code>操作符的重载:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// 对 &quot;*&quot; 的重载</span>
