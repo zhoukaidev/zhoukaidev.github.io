@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
     
     
       
@@ -42,12 +42,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="0" class="md-skip">
         跳转至
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Knowledge Sharing" class="md-header-nav__button md-logo">
+        <a href="../.." title="Knowledge Sharing" aria-label="Knowledge Sharing" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -1429,7 +1429,7 @@
 <p>通过 <code>"-derivedDataPath xxx"</code> 设置输出路径</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="c1"># scheme为myScheme</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># scheme为myScheme</span>
 <span class="c1"># workspace为myWorkSpace.xcworkspace</span>
 <span class="c1"># configuration为Release</span>
 <span class="c1"># 将编译设置中的DEVELOPMENT_TEAM设置为XXX</span>
@@ -1438,7 +1438,7 @@ $ xcodebuild -scheme myScheme<span class="se">\</span>
     -configuration Release<span class="se">\</span>
     <span class="nv">DEVELOPMENT_TEAM</span><span class="o">=</span>XXX<span class="se">\</span>
     -derivedDataPath <span class="nv">$PWD</span>/build
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="archive">打包(Archive)</h2>
@@ -1458,11 +1458,11 @@ $ xcodebuild -scheme myScheme<span class="se">\</span>
 </blockquote>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="c1"># archive指定archive action</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># archive指定archive action</span>
 <span class="c1"># scheme为myScheme</span>
 <span class="c1"># workspace为myWorkSpace.xcworkspace/</span>
 $ xcodebuild archive -scheme myScheme -workspace myWorkSpace.xcworkspace/
-</pre></div>
+</code></pre></div>
 
 
 <ul>
@@ -1474,13 +1474,13 @@ $ xcodebuild archive -scheme myScheme -workspace myWorkSpace.xcworkspace/
 </ul>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="c1"># archive文件为myArchive.xcarchive</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># archive文件为myArchive.xcarchive</span>
 <span class="c1"># 导出文件存储路径exportedFilePath</span>
 <span class="c1"># 配置文件为 myOption.plist</span>
 $ xcodebuild -exportArchive -archivePath myArchive.xcarchive<span class="se">\</span>
      -exportPath exportedFilePath<span class="se">\</span>
      -exportOptionsPlist myOption.plist
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="code-sign">代码签名(code sign)</h2>
@@ -1504,12 +1504,12 @@ $ xcodebuild -exportArchive -archivePath myArchive.xcarchive<span class="se">\</
 </li>
 </ul>
 <p>当然这里所说的<code>只能通过xxx才能解密</code>是指通过其他方式进行解密会花费及其大的资源。</p>
-<div class="codehilite"><pre><span></span><span class="err"> original data             encrypted data</span>
+<div class="codehilite"><pre><span></span><code><span class="err"> original data             encrypted data</span>
 <span class="err">+-------------+  encrypted  +--------------+ decrypted   +------------+</span>
 <span class="err">| hello       | private key | xx.jfslflwef | public key  | hello      |</span>
 <span class="err">|             |-----------&gt; | 90*fsem;wskf |-----------&gt; |            |</span>
 <span class="err">+-------------+             +--------------+             +------------+</span>
-</pre></div>
+</code></pre></div>
 
 
 <ul>
@@ -1601,9 +1601,9 @@ $ xcodebuild -exportArchive -archivePath myArchive.xcarchive<span class="se">\</
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -1613,7 +1613,7 @@ $ xcodebuild -exportArchive -archivePath myArchive.xcarchive<span class="se">\</
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
         
         

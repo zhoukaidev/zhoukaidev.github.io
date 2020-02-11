@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
     
     
       
@@ -42,12 +42,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="0" class="md-skip">
         跳转至
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Knowledge Sharing" class="md-header-nav__button md-logo">
+        <a href="../.." title="Knowledge Sharing" aria-label="Knowledge Sharing" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -1313,11 +1313,11 @@
 本文我们会介绍在<code>python</code>中如何实现<code>封装</code>及<code>继承</code>。</p>
 <h2 id="_2">封装</h2>
 <p>封装是指将数据以及对数据的相关操作封装在一起。其实就是如何定义一个最基本的类。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;spider man&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">23</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>以上例程可以看出:</p>
@@ -1327,7 +1327,7 @@
 <li><code>__init__</code>相当于类的构造函数,该函数的第一个参数必须是<code>self</code></li>
 </ul>
 <p>完善一下上面的例子,多添加几个方法:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;spider man&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="mi">23</span>
@@ -1344,7 +1344,7 @@
 <span class="n">p</span><span class="o">.</span><span class="n">myName</span><span class="p">()</span>
 <span class="c1"># 调用myAge方法，打印p的年龄</span>
 <span class="n">p</span><span class="o">.</span><span class="n">myAge</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="_3">继承</h2>
@@ -1352,32 +1352,32 @@
 <p>比如我们有一个<code>Person</code>类，用来标识人类的通用的一些属性及方法，比如年龄，性别等。</p>
 <p><code>Student</code>类可以继承<code>Person</code>类，并在此的基础上添加<code>学号</code>,<code>班级</code>等属性及一些独特的方法。</p>
 <p>首先我们定义一个<code>Person</code>类:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">goHome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Person is go home...&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>我们来定义一个<code>Student</code>类，该类继承自<code>Person</code>:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
     <span class="k">pass</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>我们定义了<code>Student</code>类，在该类内部并没有定义任何函数，但依然可以继承<code>Person</code>的<code>goHome</code>方法。</p>
-<div class="codehilite"><pre><span></span><span class="c1">#例程</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">#例程</span>
 <span class="c1"># 定义Person类，并调用goHome</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">goHome</span><span class="p">()</span>
 <span class="c1"># 定义Student类，并调用goHome</span>
 <span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">()</span>
 <span class="n">stu</span><span class="o">.</span><span class="n">goHome</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>上面我们介绍了继承最基本的概念，有没有注意到上面我们并没有添加构造函数这些。
 现在我们把<code>委托构造函数</code>加进来。</p>
-<div class="codehilite"><pre><span></span><span class="c1"># 在构造Person类的时候，需要提供`name`,`age`</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 在构造Person类的时候，需要提供`name`,`age`</span>
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
@@ -1394,7 +1394,7 @@
 <span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;spider man2&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;201203&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Person: &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Student: &quot;</span><span class="p">,</span> <span class="n">stu</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">stu</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">stu</span><span class="o">.</span><span class="n">studentId</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
                 
                   
                 
@@ -1457,9 +1457,9 @@
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -1469,7 +1469,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
         
         

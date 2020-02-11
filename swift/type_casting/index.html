@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
     
     
       
@@ -42,12 +42,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="0" class="md-skip">
         跳转至
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Knowledge Sharing" class="md-header-nav__button md-logo">
+        <a href="../.." title="Knowledge Sharing" aria-label="Knowledge Sharing" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -1342,19 +1342,19 @@
 <ul>
 <li>定义基类<code>MediaItem</code></li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">MediaItem</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">MediaItem</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>  <span class="c1">// 包含name属性</span>
     <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// init函数</span>
         <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <ul>
 <li>定义子类<code>Movie</code>和<code>Song</code></li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Movie</span><span class="p">:</span> <span class="n">MediaItem</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span> <span class="nc">Movie</span><span class="p">:</span> <span class="n">MediaItem</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nv">director</span><span class="p">:</span> <span class="nb">String</span>
     <span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">director</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
         <span class="kc">self</span><span class="p">.</span><span class="n">director</span> <span class="p">=</span> <span class="n">director</span>
@@ -1369,7 +1369,7 @@
         <span class="kc">super</span><span class="p">.</span><span class="kd">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">name</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <ul>
@@ -1377,17 +1377,17 @@
 </ul>
 <p>以下创建了<code>library</code>数组,并存储了两个<code>Movie</code>实例及一个<code>Song</code>实例。根据类型推断规则，这两个实例用于共同的父类<code>MediaItem</code>，所以
 这里数组会被推断为[MediaItem]类型,相当于<code>let library:[MediaItem] = [xxx]</code></p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">library</span> <span class="p">=</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">let</span> <span class="nv">library</span> <span class="p">=</span> <span class="p">[</span>
     <span class="n">Movie</span><span class="p">(</span><span class="n">name</span><span class="p">:</span><span class="s">&quot;Casablanca&quot;</span><span class="p">,</span> <span class="n">director</span><span class="p">:</span> <span class="s">&quot;Michael Curtiz&quot;</span><span class="p">),</span>
     <span class="n">Song</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Blue Suede Shoes&quot;</span><span class="p">,</span> <span class="n">artist</span><span class="p">:</span> <span class="s">&quot;Elvis Presley&quot;</span><span class="p">),</span>
     <span class="n">Movie</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Citizen Kane&quot;</span><span class="p">,</span> <span class="n">director</span><span class="p">:</span> <span class="s">&quot;Orson Welles&quot;</span><span class="p">)</span>
 <span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="_3">类型检查</h2>
 <p>使用<code>is</code>操作符来检查一个实例能否转换成相应的子类类型。</p>
-<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">movieCount</span> <span class="p">=</span> <span class="mi">0</span>
+<div class="codehilite"><pre><span></span><code><span class="kd">var</span> <span class="nv">movieCount</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="kd">var</span> <span class="nv">songCount</span> <span class="p">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">library</span> <span class="p">{</span>
     <span class="c1">// 执行向下类型转换，判断是否是Movie类型</span>
@@ -1400,13 +1400,13 @@
 <span class="p">}</span>
 
 <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Media library contains: </span><span class="si">\(</span><span class="n">movieCount</span><span class="si">)</span><span class="s"> movies and </span><span class="si">\(</span><span class="n">songCount</span><span class="si">)</span><span class="s"> songs&quot;</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="_4">向下类型转换</h2>
 <p>在类的继承关系图中，通常将子类放在父类下面，所以通过将父类向子类的转换称为
 向下类型转换。</p>
-<div class="codehilite"><pre><span></span><span class="err">      +------------+</span>
+<div class="codehilite"><pre><span></span><code><span class="err">      +------------+</span>
 <span class="err">      | base class |</span>
 <span class="err">      +------------+</span>
 <span class="err">            |</span>
@@ -1416,21 +1416,21 @@
 <span class="err">      +------------+</span>
 <span class="err">      | subclass   |</span>
 <span class="err">      +------------+ </span>
-</pre></div>
+</code></pre></div>
 
 
 <p>通过使用(<code>as?</code>)或(<code>as!</code>)来实现向下类型转换。</p>
 <p>使用<code>as?</code>执行向下类型转换时，会返回<code>Optional</code>类型，当向下类型转换失败的时候,
 会返回<code>nil</code>值。</p>
 <p>使用<code>as!</code>来执行向下类型转换时，如果类型转化失败，会触发<code>runtime error</code>.</p>
-<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">library</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">library</span> <span class="p">{</span>
     <span class="k">if</span> <span class="kd">let</span> <span class="nv">movie</span> <span class="p">=</span> <span class="n">item</span> <span class="k">as</span><span class="p">?</span> <span class="n">Movie</span> <span class="p">{</span>
         <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Movie: </span><span class="si">\(</span><span class="n">movie</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">, dir: </span><span class="si">\(</span><span class="n">movie</span><span class="p">.</span><span class="n">director</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="kd">let</span> <span class="nv">song</span> <span class="p">=</span> <span class="n">item</span> <span class="k">as</span><span class="p">?</span> <span class="n">Song</span> <span class="p">{</span>
         <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Song: </span><span class="si">\(</span><span class="n">song</span><span class="p">.</span><span class="n">name</span><span class="si">)</span><span class="s">, by </span><span class="si">\(</span><span class="n">song</span><span class="p">.</span><span class="n">artist</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
                 
                   
                 
@@ -1493,9 +1493,9 @@
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -1505,7 +1505,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
         
         

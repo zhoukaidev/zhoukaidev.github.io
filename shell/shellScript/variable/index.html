@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
     
     
       
@@ -42,12 +42,12 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="0" class="md-skip">
         跳转至
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../.." title="Knowledge Sharing" class="md-header-nav__button md-logo">
+        <a href="../../.." title="Knowledge Sharing" aria-label="Knowledge Sharing" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -1370,8 +1370,8 @@
 <h2 id="_2">普通变量</h2>
 <h3 id="_3">定义变量</h3>
 <p>在shell脚本中,定义变量的语法格式如下:</p>
-<div class="codehilite"><pre><span></span><span class="nv">variable_name</span><span class="o">=</span>variable_value
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="nv">variable_name</span><span class="o">=</span>variable_value
+</code></pre></div>
 
 
 <p>在这里有几点需要注意:</p>
@@ -1379,34 +1379,34 @@
 <li><code>"variable_name"</code>,<code>"="</code>及<code>"variable_value"</code>之间不存在任何空间</li>
 <li>变量名一般使用纯大写字母</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="c1">#定义两个变量并赋值</span>
 <span class="nv">COUNTRY</span><span class="o">=</span><span class="s2">&quot;China&quot;</span>
 <span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;kai&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="_4">删除变量</h3>
 <p>当我们定义变量之后,我们也可以删除相应的变量，在删除相应的变量后，当我们再次引用该变量的时候，
 该变量的值变为空。</p>
 <p>删除变量的语法:</p>
-<div class="codehilite"><pre><span></span><span class="nb">unset</span> variable_name
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="nb">unset</span> variable_name
+</code></pre></div>
 
 
 <p>以下的例程中，我们首先定义一个变量，然后在删除改变量:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="nv">COUNTRY</span><span class="o">=</span><span class="s2">&quot;china&quot;</span>
 <span class="c1">#该语法为变量访问，后续进行介绍</span>
 <span class="nb">echo</span> <span class="nv">$COUNTRY</span> 
 <span class="nb">unset</span> COUNTRY
 <span class="nb">echo</span> <span class="nv">$COUNTRY</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="_5">变量访问</h2>
 <p>为了访问脚本中定义变量的值,需要在变量名前使用<code>$</code>符号。</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 
 <span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;kai.zhou&quot;</span>
 <span class="c1"># 直接访问变量</span>
@@ -1416,7 +1416,7 @@
 <span class="c1"># 变量的拼接</span>
 <span class="c1"># 输出值为 hello_kai.zhou</span>
 <span class="nb">echo</span> <span class="s2">&quot;hello_</span><span class="si">${</span><span class="nv">NAME</span><span class="si">}</span><span class="s2">&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="shell"><code>shell</code>脚本中的特殊变量</h2>
@@ -1458,7 +1458,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="ch">#!/bin/sh</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/sh</span>
 <span class="c1"># variable.sh</span>
 <span class="nb">echo</span> <span class="s2">&quot;The filename of current script: </span><span class="nv">$0</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;The first parameter: </span><span class="nv">$1</span><span class="s2">&quot;</span>
@@ -1467,12 +1467,12 @@
 <span class="nb">echo</span> <span class="s2">&quot;The exit status of the last command: </span><span class="nv">$?</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;All argument are double quoted: </span><span class="nv">$*</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;All arguments are individually double quoted: </span><span class="nv">$@</span><span class="s2">&quot;</span>
-</pre></div>
+</code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># run variable.sh</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># run variable.sh</span>
 $ ./variable.sh hello world
-</pre></div>
+</code></pre></div>
                 
                   
                 
@@ -1535,9 +1535,9 @@ $ ./variable.sh hello world
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -1547,7 +1547,7 @@ $ ./variable.sh hello world
       
     </div>
     
-      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
       
         
         

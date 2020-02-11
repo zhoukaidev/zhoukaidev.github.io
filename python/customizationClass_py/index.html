@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
     
     
       
@@ -42,12 +42,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
     
     
       
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="0" class="md-skip">
         跳转至
       </a>
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Knowledge Sharing" class="md-header-nav__button md-logo">
+        <a href="../.." title="Knowledge Sharing" aria-label="Knowledge Sharing" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -119,7 +119,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -1333,23 +1333,23 @@
 <p>更详细的内容，可以参考<a href="https://docs.python.org/3/reference/datamodel.html#basic-customization">python Basic customization</a>。</p>
 <h2 id="_2">前期思考</h2>
 <p>先来一小段代码暖身:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="n">_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">_list</span><span class="p">)</span>
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">_list</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>上面这段代码的输出值是:</p>
-<div class="codehilite"><pre><span></span><span class="o">[</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span><span class="o">]</span>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span><span class="o">]</span>
 <span class="m">4</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>我们写一个自定义类，重新调用上面的代码:</p>
-<div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 
 <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span>
@@ -1358,15 +1358,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>上面的代码在我电脑上的输出值为:</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">_main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x102203278</span><span class="o">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">_main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x102203278</span><span class="o">&gt;</span>
 <span class="n">Traceback</span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
 <span class="o">...</span>
 <span class="n">TyepError</span><span class="p">:</span> <span class="nb">object</span> <span class="n">of</span> <span class="nb">type</span> <span class="s1">&#39;Person&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="nb">len</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>我们可以看到，<code>print(person)</code>的输出值为<code>&lt;_main__.Person object at 0x102203278&gt;</code>, <code>length = len(person)</code>代码运行出错。</p>
@@ -1378,36 +1378,36 @@
 <h2 id="personprint">让<code>Person</code>支持print</h2>
 <p>还记得在<code>python</code>中，类的构造函数形式是<code>__init__</code>,像这种在函数名称前后各有两个下划线的函数，是<code>python</code>中的保留函数名称，会在某些情况下调用。</p>
 <p>让我们为<code>Person</code>函数实现一个<code>__str__</code>函数:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;I am a person&quot;</span>
 
 <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>以上代码的输出值为:</p>
-<div class="codehilite"><pre><span></span>I am a person
-</pre></div>
+<div class="codehilite"><pre><span></span><code>I am a person
+</code></pre></div>
 
 
 <p>我们重写了<code>__str__</code>函数，这是我们调用<code>print</code>函数的时候，就可以将<code>__str__</code>返回值打印出来。
 这也就是上面代码中<code>_list</code>可以打印出<code>[1, 2, 3, 4]</code>的愿意，因为它们按照自己的需要重写了<code>__str__</code>函数。</p>
 <h2 id="personlen">Person支持<code>len</code>函数</h2>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">0</span>
 
 <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>运行上面的代码输出值为:</p>
-<div class="codehilite"><pre><span></span><span class="m">0</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="m">0</span>
+</code></pre></div>
 
 
 <p>发现没， <code>len</code>函数最终调用了<code>Person</code>的<code>__len__</code>函数，并将<code>__len__</code>函数的返回值进行返回。</p>
@@ -1478,9 +1478,9 @@
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs</a>
       </div>
       
@@ -1490,7 +1490,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.808e90bb.js"></script>
+      <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
         
         
