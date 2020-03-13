@@ -1322,6 +1322,26 @@
     语法介绍
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#att" class="md-nav__link">
+    AT&amp;T语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本汇编指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1370,6 +1390,26 @@
     语法介绍
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#att" class="md-nav__link">
+    AT&amp;T语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    基本汇编指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1403,6 +1443,58 @@
 当然使用何种汇编语言语法还是依赖于使用何种汇编器的。</p>
 <p><code>AT&amp;T syntax</code>使用在<code>GNU AS</code>汇编器中，<code>GNU AS</code>也经常简称为<code>GAS</code>.</p>
 <h2 id="_2">语法介绍</h2>
+<h3 id="att">AT&amp;T语法</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>简介</th>
+<th>示例代码</th>
+<th>代码含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>寄存器(register)</td>
+<td>使用<code>%</code>修饰寄存器</td>
+<td>MOV %EAX, %ECX</td>
+<td>将EAX值移动到ECX</td>
+</tr>
+<tr>
+<td>立即数(immediate value)</td>
+<td>使用<code>$</code>修饰立即数</td>
+<td>MOV $3, %EAX</td>
+<td>将3移动到EAX</td>
+</tr>
+<tr>
+<td>内存地址访问</td>
+<td><code>x(%寄存器)</code> 形式</td>
+<td>MOV 4(%EAX), %ECX</td>
+<td>将(EAX+4)所指向的内存地址里的数据移动到ECX中，类似于<code>ECX = *(EAX+4)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">基本汇编指令</h3>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>简介</th>
+<th>Intel语法</th>
+<th>AT&amp;T语法</th>
+<th>示例代码含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOV</td>
+<td>--</td>
+<td>---</td>
+<td>--------</td>
+<td>--------------</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
