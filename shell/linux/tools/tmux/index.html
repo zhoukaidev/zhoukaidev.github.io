@@ -1536,6 +1536,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#view-history" class="md-nav__link">
+    view history
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1684,6 +1691,28 @@
 <blockquote>
 <p>这里必须是按住<code>Ctrl+b</code>的同时按<code>左键</code>或<code>右键</code></p>
 </blockquote>
+<h3 id="view-history">view history</h3>
+<p>在tmux的默认环境中,"鼠标滚轮"的事件会被映射称为"上下"按键的功能,因此我们无法直接使用"鼠标滚轮"去查看历史。
+我们可以通过一些快捷键进入<code>copy mode</code>,然后通过"上下"按键去查看历史。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"Ctrl"+b</code> --&gt;[</td>
+<td>Enter copy mode to copy text or view the history</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>进入<code>copy mode</code>后使用<code>q</code>来退出<code>copy mode</code></td>
+</tr>
+</tbody>
+</table>
+<p>进入<code>copy mode</code>之后就可以使用<code>鼠标滚轮</code>或者<code>上下</code>按键来查看console的历史输出了。</p>
 <h2 id="_3">参考文档</h2>
 <ul>
 <li><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">Easy guide to tmux</a></li>
