@@ -1549,6 +1549,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     参考文档
   </a>
@@ -1713,6 +1720,17 @@
 </tbody>
 </table>
 <p>进入<code>copy mode</code>之后就可以使用<code>鼠标滚轮</code>或者<code>上下</code>按键来查看console的历史输出了。</p>
+<h2 id="faq">FAQ</h2>
+<blockquote>
+<p>在进入<code>tmux</code>后,无法显示正常<code>bash</code>设置的语法高亮?</p>
+</blockquote>
+<ul>
+<li>将以下代码添加到<code>~/.tmux.conf</code>文件中:</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="nb">set</span> -g default-terminal <span class="s2">&quot;screen-256color&quot;</span>
+</code></pre></div>
+
+
 <h2 id="_3">参考文档</h2>
 <ul>
 <li><a href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">Easy guide to tmux</a></li>
