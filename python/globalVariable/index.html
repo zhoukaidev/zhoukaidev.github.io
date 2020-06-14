@@ -847,6 +847,26 @@
     访问全局变量
   </a>
   
+    <nav class="md-nav" aria-label="访问全局变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    读全局变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    写全局变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1678,6 +1698,26 @@
     访问全局变量
   </a>
   
+    <nav class="md-nav" aria-label="访问全局变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    读全局变量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    写全局变量
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1715,9 +1755,7 @@
 
 <h2 id="_3">访问全局变量</h2>
 <p>如果函数内部定义的局部变量的名称和全局变量的名称一致，该全局变量在函数内部会被隐藏。</p>
-<ul>
-<li>读全局变量</li>
-</ul>
+<h3 id="_4">读全局变量</h3>
 <div class="codehilite"><pre><span></span><code><span class="n">_globalVariable</span> <span class="o">=</span> <span class="s2">&quot;This is global variable&quot;</span>
 
 <span class="k">def</span> <span class="nf">printVariable</span><span class="p">():</span>
@@ -1733,9 +1771,7 @@
 <p>This is global variable</p>
 </blockquote>
 <p>我们可以直接在函数内部访问<code>_globalVariable</code>全局变量。</p>
-<ul>
-<li>写全局变量</li>
-</ul>
+<h3 id="_5">写全局变量</h3>
 <p>在函数内部<code>写全局变量</code>的方法与<code>读全局变量</code>的方法略有不同,我会在后面的代码中演示这一点.</p>
 <p>首先我们来看一个<strong>错误</strong>的案例:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">_globalVariable</span> <span class="o">=</span> <span class="s2">&quot;This is global variable&quot;</span>
