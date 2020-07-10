@@ -1717,11 +1717,10 @@ $ ssh-keygen -l -f xxx.pub
 <ul>
 <li>指定fingerprint的编码格式</li>
 </ul>
-<p>````sh</p>
-<h1 id="puttyfingerprintmd5">当使用putty登陆时,显示的fingerprint适用MD5编码进行显示</h1>
-<h1 id="ssh-keygen-e">在ssh-keygen也可以通过 -E 指定显示的格式</h1>
-<p>$ ssh-keygen -E md5 -l -f xxx.pub
-``</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 当使用putty登陆时,显示的fingerprint适用MD5编码进行显示</span>
+<span class="c1"># 在ssh-keygen也可以通过 -E 指定显示的格式</span>
+$ ssh-keygen -E md5 -l -f xxx.pub
+</code></pre></div>
                 
               
               
