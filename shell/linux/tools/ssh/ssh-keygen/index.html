@@ -1703,6 +1703,25 @@ xxxx
 <div class="codehilite"><pre><span></span><code><span class="c1"># 生成DSA密钥</span>
 $ ssh-keygen -t dsa
 </code></pre></div>
+
+
+<ul>
+<li>获取指定公钥的fingerprint</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 适用 -l 来获取</span>
+<span class="c1"># -f 指定公钥文件, -l 指定获取fingerprint</span>
+$ ssh-keygen -l -f xxx.pub
+</code></pre></div>
+
+
+<ul>
+<li>指定fingerprint的编码格式</li>
+</ul>
+<p>````sh</p>
+<h1 id="puttyfingerprintmd5">当使用putty登陆时,显示的fingerprint适用MD5编码进行显示</h1>
+<h1 id="ssh-keygen-e">在ssh-keygen也可以通过 -E 指定显示的格式</h1>
+<p>$ ssh-keygen -E md5 -l -f xxx.pub
+``</p>
                 
               
               
