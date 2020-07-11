@@ -1805,10 +1805,18 @@
 <p><code>pip</code>为python所使用的安装包管理工具，大部分的<code>第三方开发包</code>都是借助<code>pip</code>进行安装。</p>
 <p>以下介绍如何在各个平台上安装<code>pip</code>:</p>
 <ul>
-<li>ubuntu<ul>
+<li>
+<p>ubuntu</p>
+<ul>
 <li>安装python3的pip: <code>sudo apt-get install python3-pip</code></li>
 <li>安装python的pip: <code>sudo apt-get install python-pip</code></li>
 </ul>
+</li>
+<li>
+<p>为pip设置代理
+   通过指定<code>proxy</code>参数来设置代理
+   <code>sh
+   pip install --proxy=http://web-proxy.us.xxxx:8080 Django</code></p>
 </li>
 </ul>
 <h2 id="_3">参考手册</h2>
