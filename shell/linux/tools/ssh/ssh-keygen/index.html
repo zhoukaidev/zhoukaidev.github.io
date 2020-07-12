@@ -1713,7 +1713,10 @@ xxxx
 </ul>
 <p>具体支持的类型可以通过<code>man ssh-keygen</code>查看。</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 生成DSA密钥</span>
+<span class="c1"># -t 指定密钥的类型</span>
+<span class="c1"># -b 指定密钥的长度</span>
 $ ssh-keygen -t dsa
+$ ssh-keygen -t rsa -b <span class="m">4096</span>
 </code></pre></div>
 
 
