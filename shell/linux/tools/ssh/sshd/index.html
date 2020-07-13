@@ -1709,10 +1709,10 @@
 <li>添加新的<code>public key</code></li>
 </ul>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 添加公钥到authorized_key</span>
-cat myPublicKey.pub &gt;&gt; ~/.ssh/authorized_key
+$ cat myPublicKey.pub &gt;&gt; ~/.ssh/authorized_key
 
 <span class="c1"># sshd重新读取配置文件</span>
-systemctl reload sshd
+$ systemctl reload sshd
 </code></pre></div>
                 
               
