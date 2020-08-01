@@ -910,6 +910,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    修改类属性
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1777,6 +1784,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    修改类属性
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1859,6 +1873,29 @@
 
 
 <p>从以上结果可以看出，<code>类属性</code>所有的对象共享，每个<code>Student</code>对象都可以修改该属性。</p>
+<h2 id="_4">修改类属性</h2>
+<p>我们无法通过使用对象的方式来修改类属性,当尝试使用对象来修改类属性的时候,实际上发生的事情是为该对象增加了一个新的属性。</p>
+<p>修改类属性需要使用<code>类</code>来引用该属性。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Student&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="n">stu</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stu</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stu</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="n">stu</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mynewname&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stu</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Student</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="c1"># 使用类来修改类属性</span>
+</code></pre></div>
+
+
+<p>输出值为:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Student</span>
+<span class="mi">13</span>
+<span class="n">mynewname</span>
+<span class="n">Student</span>
+</code></pre></div>
                 
               
               
