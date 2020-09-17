@@ -1832,7 +1832,7 @@
 </ol>
 <p>我们直接通过<code>if</code>语句来判断<code>p1, p2</code>是否包含空指针，并输出相应的字符串。</p>
 <p>之所以可以直接通过<code>if</code>语句来判断<code>p1, p2</code>这两个<code>shared_ptr</code>对象是否包含空指针，是因为<code>shared_ptr</code>提供了相应的类型转换函数:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">explicit</span> <span class="k">operator</span> <span class="nf">bool</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><code><span class="k">explicit</span> <span class="k">operator</span> <span class="kt">bool</span><span class="p">()</span> <span class="k">const</span> <span class="k">noexcept</span><span class="p">;</span>
 </code></pre></div>
 
 

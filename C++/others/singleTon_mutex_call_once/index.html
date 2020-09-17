@@ -1847,7 +1847,7 @@
 是安全的，但在每次调用该函数的时候，都要求获取<code>mutex</code>,
 这会降低该函数的性能。</p>
 <p>基于以上的代码，我们在来做一些修改，看一下其中会存在什么样的问题。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="n">SingleTon</span><span class="o">*</span> <span class="nf">getInstance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="n">SingleTon</span><span class="o">*</span> <span class="n">getInstance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">s_p</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">){</span>
         <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">s_mtx</span><span class="p">);</span>
@@ -1864,9 +1864,9 @@
 是CPU也会乱序执行，这使得很多指令并不像我们想象中的顺序那样运行。这使得上面的代码
 <strong>不是线程安全的</strong>.</p>
 <p><code>s_p = new SingleTon();</code>这句代码包括三个部分:</p>
-<div class="codehilite"><pre><span></span><code><span class="mi">1</span><span class="p">.</span> <span class="err">申请内存空间</span>
-<span class="mi">2</span><span class="p">.</span> <span class="err">调用构造函数初始化内存空间</span>
-<span class="mi">3</span><span class="p">.</span> <span class="err">将地址指针赋值给</span><span class="ss">`s_p`</span>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span> <span class="n">申请内存空间</span>
+<span class="mf">2.</span> <span class="n">调用构造函数初始化内存空间</span>
+<span class="mf">3.</span> <span class="n">将地址指针赋值给`s_p`</span>
 </code></pre></div>
 
 
@@ -1889,7 +1889,7 @@
 <span class="k">private</span><span class="o">:</span>
     <span class="k">static</span> <span class="n">SingleTon</span><span class="o">*</span> <span class="n">s_p</span><span class="p">;</span>
     <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">once_flag</span> <span class="n">s_flag</span><span class="p">;</span>
-    <span class="k">static</span> <span class="kt">void</span> <span class="nf">ininSingleTon</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">ininSingleTon</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">s_p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SingleTon</span><span class="p">();</span>
     <span class="p">}</span>
     <span class="n">SingleTon</span><span class="p">(</span><span class="n">SingleTon</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
