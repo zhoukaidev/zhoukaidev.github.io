@@ -1982,11 +1982,11 @@ $ xcodebuild -exportArchive -archivePath myArchive.xcarchive<span class="se">\</
 </li>
 </ul>
 <p>当然这里所说的<code>只能通过xxx才能解密</code>是指通过其他方式进行解密会花费及其大的资源。</p>
-<div class="codehilite"><pre><span></span><code><span class="err"> original data             encrypted data</span>
-<span class="err">+-------------+  encrypted  +--------------+ decrypted   +------------+</span>
-<span class="err">| hello       | private key | xx.jfslflwef | public key  | hello      |</span>
-<span class="err">|             |-----------&gt; | 90*fsem;wskf |-----------&gt; |            |</span>
-<span class="err">+-------------+             +--------------+             +------------+</span>
+<div class="codehilite"><pre><span></span><code><span class="c"> original data             encrypted data</span>
+<span class="nb">+-------------+</span><span class="c">  encrypted  </span><span class="nb">+--------------+</span><span class="c"> decrypted   </span><span class="nb">+------------+</span><span class="c"></span>
+<span class="c">| hello       | private key | xx</span><span class="nt">.</span><span class="c">jfslflwef | public key  | hello      |</span>
+<span class="c">|             |</span><span class="nb">-----------</span><span class="nv">&gt;</span><span class="c"> | 90*fsem;wskf |</span><span class="nb">-----------</span><span class="nv">&gt;</span><span class="c"> |            |</span>
+<span class="nb">+-------------+</span><span class="c">             </span><span class="nb">+--------------+</span><span class="c">             </span><span class="nb">+------------+</span><span class="c"></span>
 </code></pre></div>
 
 <ul>
