@@ -1719,6 +1719,47 @@
     指令
   </a>
   
+    <nav class="md-nav" aria-label="指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rsa" class="md-nav__link">
+    生成RSA密钥
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    生成指定类型的密钥
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    指定公私钥的存储路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fingerprint" class="md-nav__link">
+    获取指定公钥的fingerprint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fingerprint_1" class="md-nav__link">
+    指定fingerprint的编码格式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1742,17 +1783,13 @@
 <p><code>ssh-keygen</code>是用于生成,管理以及转换授权密钥的工具。</p>
 <h2 id="_2">指令</h2>
 <p><code>ssh-keygen</code>支持很多不同的参数组合，我也会随着学习的深入来持续更新该文章。</p>
-<ul>
-<li>生成RSA密钥</li>
-</ul>
+<h4 id="rsa">生成RSA密钥</h4>
 <p>在不添加任何参数的情况下,默认会生成RAS密钥.</p>
 <div class="codehilite"><pre><span></span><code>$ ssh-keygen
 xxxx
 </code></pre></div>
 
-<ul>
-<li>生成指定类型的密钥</li>
-</ul>
+<h4 id="_3">生成指定类型的密钥</h4>
 <p>具体支持的类型可以通过<code>man ssh-keygen</code>查看。</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 生成DSA密钥</span>
 <span class="c1"># -t 指定密钥的类型</span>
@@ -1761,24 +1798,18 @@ $ ssh-keygen -t dsa
 $ ssh-keygen -t rsa -b <span class="m">4096</span>
 </code></pre></div>
 
-<ul>
-<li>指定公私钥的存储路径</li>
-</ul>
+<h4 id="_4">指定公私钥的存储路径</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 此命令会在该文件夹下生成名为testkey的公私钥，类型为4096的rsa</span>
 $ ssh-keygen -t rsa -b <span class="m">4096</span> -f ./testkey
 </code></pre></div>
 
-<ul>
-<li>获取指定公钥的fingerprint</li>
-</ul>
+<h4 id="fingerprint">获取指定公钥的fingerprint</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 适用 -l 来获取</span>
 <span class="c1"># -f 指定公钥文件, -l 指定获取fingerprint</span>
 $ ssh-keygen -l -f xxx.pub
 </code></pre></div>
 
-<ul>
-<li>指定fingerprint的编码格式</li>
-</ul>
+<h4 id="fingerprint_1">指定fingerprint的编码格式</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 当使用putty登陆时,显示的fingerprint适用MD5编码进行显示</span>
 <span class="c1"># 在ssh-keygen也可以通过 -E 指定显示的格式</span>
 $ ssh-keygen -E md5 -l -f xxx.pub
