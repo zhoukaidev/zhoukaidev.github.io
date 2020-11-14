@@ -1762,6 +1762,13 @@ $ ssh-keygen -t rsa -b <span class="m">4096</span>
 </code></pre></div>
 
 <ul>
+<li>指定公私钥的存储路径</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 此命令会在该文件夹下生成名为testkey的公私钥，类型为4096的rsa</span>
+$ ssh-keygen -t rsa -b <span class="m">4096</span> -f ./testkey
+</code></pre></div>
+
+<ul>
 <li>获取指定公钥的fingerprint</li>
 </ul>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 适用 -l 来获取</span>
