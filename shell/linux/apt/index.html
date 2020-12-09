@@ -1751,6 +1751,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    设置proxy
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1768,6 +1783,12 @@
                 
                 <h1 id="_1">简介</h1>
 <p>本文主要用于介绍<code>Linux</code>下<code>apt</code>的使用方法。</p>
+<h2 id="proxy">设置proxy</h2>
+<p>添加 <code>/etc/apt/apt.conf.d/proxy.conf</code>文件</p>
+<div class="codehilite"><pre><span></span><code>Acqurire <span class="o">{</span>
+  HTTP::proxy <span class="s2">&quot;http://web-proxy.us.softwaregrp.net:8080&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
                 
               
               
