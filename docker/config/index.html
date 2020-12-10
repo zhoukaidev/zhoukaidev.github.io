@@ -1784,8 +1784,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rootdocker" class="md-nav__link">
+    非root用户使用docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#proxy" class="md-nav__link">
     proxy配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    配置registry镜像
   </a>
   
 </li>
@@ -1838,8 +1852,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rootdocker" class="md-nav__link">
+    非root用户使用docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#proxy" class="md-nav__link">
     proxy配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registry" class="md-nav__link">
+    配置registry镜像
   </a>
   
 </li>
@@ -1863,6 +1891,11 @@
                 
                 <h1 id="_1">简介</h1>
 <p>本文主要用于介绍有关<code>docker</code>的相关配置。</p>
+<h2 id="rootdocker">非root用户使用docker</h2>
+<div class="codehilite"><pre><span></span><code>$ sudo groupadd docker
+$ sudo usermod -aG docker <span class="nv">$USER</span>
+</code></pre></div>
+
 <h2 id="proxy">proxy配置</h2>
 <p>针对<code>linux</code>系统,添加<code>~/.docker/config.json</code>文件，并做如下的配置</p>
 <div class="codehilite"><pre><span></span><code><span class="o">{</span>
@@ -1875,6 +1908,15 @@
      <span class="s2">&quot;noProxy&quot;</span>: <span class="s2">&quot;*.test.example.com,.example2.com&quot;</span>
    <span class="o">}</span>
  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h2 id="registry">配置registry镜像</h2>
+<p>因为国内网络的原因，有时候直接从<code>hub.docker.com</code>上pull镜像的时候，会出现网络不稳定等问题，所以我们需要添加镜像，让
+我们的docker从国内的镜像网站中来下载image.</p>
+<p>修改<code>/etc/docker/daemon.json</code>文件:</p>
+<div class="codehilite"><pre><span></span><code><span class="o">{</span>
+  <span class="s2">&quot;registry-mirrors&quot;</span>: <span class="o">[</span><span class="s2">&quot;https://&lt;my-docker-mirror-host&gt;&quot;</span><span class="o">]</span>
 <span class="o">}</span>
 </code></pre></div>
                 
