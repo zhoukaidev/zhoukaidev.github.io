@@ -1223,6 +1223,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1836,6 +1843,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1854,7 +1868,11 @@
                 
                 
                 <h1 id="_1">简介</h1>
-<p>本文主要用于介绍<code>Linux</code>下<code>apt</code>的使用方法。</p>
+<p>本文用于介绍软件包管理系统:</p>
+<ul>
+<li><code>dpkg</code></li>
+<li><code>apt-get</code></li>
+</ul>
 <h2 id="proxy">设置proxy</h2>
 <p>添加 <code>/etc/apt/apt.conf.d/proxy.conf</code>文件</p>
 <div class="codehilite"><pre><span></span><code>Acqurire <span class="o">{</span>
@@ -1863,6 +1881,72 @@
 </code></pre></div>
 
 <h2 id="_2">添加软件源</h2>
+<p>TODO</p>
+<h2 id="apt">apt</h2>
+<ul>
+<li><code>apt-get</code></li>
+<li><code>apt-cache</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apt-get update</code></td>
+<td>更新本地软件包数据库</td>
+</tr>
+<tr>
+<td><code>apt-get upgrade</code></td>
+<td>下载并安装本系统已有的软件包的最新版本</td>
+</tr>
+<tr>
+<td><code>apt-get install xxx</code></td>
+<td>安装软件</td>
+</tr>
+<tr>
+<td><code>apt-get remove</code></td>
+<td>卸载特定的软件</td>
+</tr>
+<tr>
+<td><code>apt-get clean</code></td>
+<td>删除所有已下载的包文件</td>
+</tr>
+<tr>
+<td><code>apt-get source</code></td>
+<td>下载特定的软件源代码</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>apt-get(Advanced Package Tool)<ul>
+<li>sudo apt-get update(used to update datebase)</li>
+<li>sudo apt-get upgrade(used to upgrade package)</li>
+<li>sudo apt-get upgrade &lt;packageName></li>
+<li>sudo apt-get install &lt;\pakcageName&gt;</li>
+<li>sudo apt-get install &lt;\packageName&gt; --no-upgrade</li>
+<li>sudo apt-get install &lt;\packageName&gt; --only-upgrade</li>
+<li>sudo apt-get remove &lt;\packageName&gt;</li>
+<li>sudo apt-get purge &lt;\packageName&gt;</li>
+<li>sudo apt-get clean</li>
+<li>sudo apt-get autoclean</li>
+<li>sudo apt-get autoremove<ul>
+<li>installing</li>
+<li>upgrading</li>
+<li>clean</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>apt-cache<ul>
+<li>finding new packages</li>
+<li>dpkg packaging system</li>
+</ul>
+</li>
+</ul>
                 
               
               
