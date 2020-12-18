@@ -1890,15 +1890,15 @@
                 <h1 id="_1">简介</h1>
 <p>本文主要介绍不同操作系统下<code>docker</code>的安装方法。</p>
 <h2 id="linux">Linux</h2>
-<ol>
+<ul>
 <li>卸载老版本的docker,老版本的docker被称为<code>docker</code>,<code>docker.io</code>,<code>docker-enginee</code></li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span><code>sudo apt-get remove docker docker-enginee docker.io containerd runc
 </code></pre></div>
 
-<ol>
+<ul>
 <li>卸载新版本的<code>docker</code>相关软件</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span><code>sudo apt-get purge docker-ce docker-ce-cli containerd.io
 </code></pre></div>
 
@@ -1906,31 +1906,31 @@
 <p>以上指令不会删除image, container, volue,network等，如果想要全新的环境
 需要<code>sudo rm -rf /var/lib/docker</code>删除相应的文件</p>
 </blockquote>
-<ol>
+<ul>
 <li>安装需要的依赖软件</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span><code>sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 </code></pre></div>
 
-<ol>
+<ul>
 <li>添加docker官方的GPG key</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
 </code></pre></div>
 
 <blockquote>
 <p>验证gpg key: <code>sudo apt-key fingerprint 0EBFCD88</code></p>
 </blockquote>
-<ol>
+<ul>
 <li>添加docker的repository到apt的source里面去</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span><code>sudo add-apt-repository <span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&quot;</span>
 </code></pre></div>
 
-<ol>
+<ul>
 <li>更新<code>apt</code>及安装docker</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span><code>sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 </code></pre></div>
