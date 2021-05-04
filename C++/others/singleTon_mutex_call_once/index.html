@@ -2278,7 +2278,7 @@
 是安全的，但在每次调用该函数的时候，都要求获取<code>mutex</code>,
 这会降低该函数的性能。</p>
 <p>基于以上的代码，我们在来做一些修改，看一下其中会存在什么样的问题。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="n">SingleTon</span><span class="o">*</span> <span class="n">getInstance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="k">static</span> <span class="n">SingleTon</span><span class="o">*</span> <span class="nf">getInstance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">s_p</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">){</span>
         <span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span> <span class="n">lk</span><span class="p">(</span><span class="n">s_mtx</span><span class="p">);</span>
@@ -2318,7 +2318,7 @@
 <span class="k">private</span><span class="o">:</span>
     <span class="k">static</span> <span class="n">SingleTon</span><span class="o">*</span> <span class="n">s_p</span><span class="p">;</span>
     <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">once_flag</span> <span class="n">s_flag</span><span class="p">;</span>
-    <span class="k">static</span> <span class="kt">void</span> <span class="n">ininSingleTon</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kt">void</span> <span class="nf">ininSingleTon</span><span class="p">()</span> <span class="p">{</span>
         <span class="n">s_p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SingleTon</span><span class="p">();</span>
     <span class="p">}</span>
     <span class="n">SingleTon</span><span class="p">(</span><span class="n">SingleTon</span><span class="o">&amp;</span><span class="p">)</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
