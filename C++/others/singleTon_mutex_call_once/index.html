@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.edf004c2.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -2557,7 +2557,7 @@
 <p>本文会介绍前两种实现方法，后面两种实现方法请参考<a href="../singleTon_atomic_static_member/">本文</a>.</p>
 <h2 id="_2">实现方法</h2>
 <h3 id="stdmutex">借助std::mutex</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SingleTon</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SingleTon</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">SingleTon</span><span class="o">*</span><span class="w"> </span><span class="n">getInstance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2606,9 +2606,9 @@
 是CPU也会乱序执行，这使得很多指令并不像我们想象中的顺序那样运行。这使得上面的代码
 <strong>不是线程安全的</strong>.</p>
 <p><code>s_p = new SingleTon();</code>这句代码包括三个部分:</p>
-<div class="codehilite"><pre><span></span><code><span class="mf">1.</span> <span class="n">申请内存空间</span>
-<span class="mf">2.</span> <span class="n">调用构造函数初始化内存空间</span>
-<span class="mf">3.</span> <span class="n">将地址指针赋值给</span><span class="n n-Quoted">`s_p`</span>
+<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">申请内存空间</span><span class="w"></span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">调用构造函数初始化内存空间</span><span class="w"></span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">将地址指针赋值给</span><span class="n n-Quoted">`s_p`</span><span class="w"></span>
 </code></pre></div>
 
 <p>在实际运行过程中，编译器或CPU会执行某些优化，很有可能使得指令运行顺序变成<strong>1,3,2</strong>,
@@ -2616,7 +2616,7 @@
 <h3 id="stdcall_oncestdonce_flag">借助std::call_once与std::once_flag</h3>
 <p>在c++中可以提供一个可调用对象(fn)给<code>std::call_once</code>,该函数
 可以确保fn只被调用一次。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SingleTon</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SingleTon</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">SingleTon</span><span class="o">*</span><span class="w"> </span><span class="n">getInstance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -2713,10 +2713,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.960e086b.min.js"></script>
       
     
   </body>
