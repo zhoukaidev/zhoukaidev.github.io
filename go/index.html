@@ -2511,6 +2511,13 @@
 
 <h1 id="_1">简介</h1>
 <p><code>go</code>语言基础介绍。</p>
+<ul>
+<li>设置镜像</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>$ go env -w <span class="nv">GO111MODULE</span><span class="o">=</span>on
+$ go env -w <span class="nv">GOPROXY</span><span class="o">=</span>https://goproxy.cn,direct
+</code></pre></div>
+
 <h2 id="_2">参考文档</h2>
 <ul>
 <li><a href="https://medium.com/@adiach3nko/package-management-with-go-modules-the-pragmatic-guide-c831b4eaaf31">go modules</a></li>
