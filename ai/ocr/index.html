@@ -3590,6 +3590,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ocr-engine-models" class="md-nav__link">
+    OCR Engine models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     编译
   </a>
@@ -3605,6 +3612,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    图像预处理
+  </a>
   
 </li>
       
@@ -3663,6 +3677,16 @@
 <span class="w">       </span><span class="n">bypassing</span><span class="w"> </span><span class="n">hacks</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">Tesseract</span><span class="o">-</span><span class="n">specific</span><span class="o">.</span>
 </code></pre></div>
 
+<h3 id="ocr-engine-models">OCR Engine models</h3>
+<ul>
+<li>models<ul>
+<li>0:  Legacy engine only</li>
+<li>1:  Neural nets LSTM engine only</li>
+<li>2:  Legacy + LSTM engines</li>
+<li>3:  Default, based on what is available</li>
+</ul>
+</li>
+</ul>
 <h3 id="_3">编译</h3>
 <ul>
 <li>安装<code>visual studio</code>,并通过<code>visual studio installer</code>安装cmake工具</li>
@@ -3703,6 +3727,38 @@ Change them to release by removing the letter &quot;d&quot;
 </li>
 <li><code>tesseract.exe imagename output --oem 1 -l eng --psm 1</code><ul>
 <li>识别指定的文件，并按照指定格式进行输出</li>
+</ul>
+</li>
+</ul>
+<h2 id="_5">图像预处理</h2>
+<ul>
+<li>参考文档<ul>
+<li>https://medium.com/@maahip1304/the-complete-guide-to-image-preprocessing-techniques-in-python-dca30804550c</li>
+<li>https://sigmoidal.ai/en/histogram-equalization-with-opencv-and-python/#:~:text=equalizeHist()%20function%20in%20OpenCV,uniformly%20across%20the%20intensity%20range.</li>
+</ul>
+</li>
+<li>Resizing<ul>
+<li>将图像调整为统一大小的尺寸</li>
+</ul>
+</li>
+<li>Garyscaling<ul>
+<li>将彩色的图像转换成灰度图，可以简化图像的数据和降低计算资源的使用</li>
+</ul>
+</li>
+<li>Noise reduction<ul>
+<li>Smoothing, blurring, and filtering techniques can be applied to remove unwanted noise from images. The GaussianBlur () and medianBlur () methods are commonly used for this.</li>
+</ul>
+</li>
+<li>Normalization<ul>
+<li>Normalization adjusts the intensity values of pixels to a desired range, often between 0 to 1. This can improve the performance of machine learning models. Normalize () from scikit-image can be used for this.</li>
+</ul>
+</li>
+<li>Binarization<ul>
+<li>Binarization converts grayscale images to black and white by thresholding. The threshold () method is used to binarize images in OpenCV.</li>
+</ul>
+</li>
+<li>Contrast enhancement<ul>
+<li>The contrast of images can be adjusted using histogram equalization. The equalizeHist () method enhances the contrast of images.</li>
 </ul>
 </li>
 </ul>
