@@ -4295,6 +4295,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      小试牛刀
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4347,6 +4356,10 @@
 <div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span>
 
+<span class="n">MODULE_LICENSE</span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span>
+<span class="n">MODULE_AUTHOR</span><span class="p">(</span><span class="s">&quot;Kern&quot;</span><span class="p">);</span>
+<span class="n">MODULE_DESCRIPTION</span><span class="p">(</span><span class="s">&quot;Our first kernel module&quot;</span><span class="p">);</span>
+
 <span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">my_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -4365,7 +4378,69 @@
 <li>通过<code>module_init</code>定义<strong>加载module</strong>的时候调用的函数</li>
 <li>通过<code>module_exit</code>定义<strong>卸载module</strong>的时候调用的函数</li>
 </ul>
-<p>这是最简单的一个内核模块，当前目前没有任何功能，后续我们会逐步添加新的工作。</p>
+<p>这是最简单的一个内核模块，当前目前没有任何功能。我们先创建一个Makefile,来保证上述的模块可以正常编译</p>
+<div class="codehilite"><pre><span></span><code><span class="nl">TARGET_MODULE</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">test_module</span>
+<span class="n">$</span><span class="p">(</span><span class="n">TARGET_MODULE</span><span class="p">)</span><span class="o">-</span><span class="n">objs</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">mydriver</span><span class="p">.</span><span class="n">o</span>
+<span class="n">obj</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">$</span><span class="p">(</span><span class="n">TARGET_MODULE</span><span class="p">).</span><span class="n">o</span>
+
+<span class="nl">all</span><span class="p">:</span>
+<span class="w">    </span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">$</span><span class="p">(</span><span class="n">shell</span><span class="w"> </span><span class="n">uname</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">build</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$</span><span class="p">(</span><span class="n">PWD</span><span class="p">)</span><span class="w"> </span><span class="n">modules</span>
+<span class="nl">clean</span><span class="p">:</span>
+<span class="w">    </span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">C</span><span class="w"> </span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="n">$</span><span class="p">(</span><span class="n">shell</span><span class="w"> </span><span class="n">uname</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="n">build</span><span class="w"> </span><span class="n">M</span><span class="o">=</span><span class="n">$</span><span class="p">(</span><span class="n">PWD</span><span class="p">)</span><span class="w"> </span><span class="n">clean</span>
+<span class="nl">load</span><span class="p">:</span>
+<span class="w">    </span><span class="n">insmod</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">$</span><span class="p">(</span><span class="n">TARGET_MODULE</span><span class="p">).</span><span class="n">ko</span>
+<span class="nl">unload</span><span class="p">:</span>
+<span class="w">    </span><span class="n">rmmod</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">$</span><span class="p">(</span><span class="n">TARGET_MODULE</span><span class="p">).</span><span class="n">ko</span>
+</code></pre></div>
+
+<p>运行<code>make</code>命令，检查输出，最终我们可以看到一个<code>test_module.ko</code>文件，这即使后续我们需要加载的内核模块。</p>
+<h3 id="_3">小试牛刀</h3>
+<p>上述代码没有任何功能，我们先对上述代码做一点优化，在模块加载以及卸载的时候，打印一些日志出来</p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/init.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span>
+
+<span class="n">MODULE_LICENSE</span><span class="p">(</span><span class="s">&quot;GPL&quot;</span><span class="p">);</span>
+<span class="n">MODULE_AUTHOR</span><span class="p">(</span><span class="s">&quot;Kern&quot;</span><span class="p">);</span>
+<span class="n">MODULE_DESCRIPTION</span><span class="p">(</span><span class="s">&quot;Our first kernel module&quot;</span><span class="p">);</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">my_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printk</span><span class="p">(</span><span class="s">&quot;I have insert the first module</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">my_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printk</span><span class="p">(</span><span class="s">&quot;My first module has been removed&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">module_init</span><span class="p">(</span><span class="n">my_init</span><span class="p">);</span>
+<span class="n">module_exit</span><span class="p">(</span><span class="n">my_exit</span><span class="p">);</span>
+</code></pre></div>
+
+<blockquote>
+<p>注意: 这里我们增加了两个printk函数，用于打印相关的测试日志</p>
+</blockquote>
+<p>重新运行<code>make</code>语句，生成新的<code>test_module.ko</code>文件。</p>
+<p><img alt="make" src="../1_1.png" /></p>
+<ul>
+<li>插入模块</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>insmod<span class="w"> </span>./test_module.ko
+</code></pre></div>
+
+<p>运行上述命令将我们编写的第一个模块插入到内核中运行</p>
+<p><img alt="insmod" src="../1_2.png" /></p>
+<p>我们通过<code>echo $?</code>检查了以下返回值，看起来模块加入没有问题。</p>
+<p>然后我们运行<code>dmesg</code>命令，来打印<code>kernl ring buffer</code>里的内容，这里能够看到模块相关的加载信息。</p>
+<p><img alt="dmesg output" src="../1_3.png" /></p>
+<p>观察最后一行的输出内容，这里我们在<code>my_init</code>函数里面打印出来的日志，说明内核已经成功的加载并运行了我们写实现的
+模块。</p>
+<p>运行<code>"cat /proc/modules"</code>命令，<code>/proc/modules</code>是linux系统中的一个虚拟文件，用于显示已经加载到内核中的所有模块
+(.ko驱动文件)，包括他们的名字，大小，引用技术和以来关系。</p>
+<p><img alt="procmodule" src="../1_4.png" /></p>
+<p>试一试从里面能不能找到我们自己系的模块。</p>
 
 
 
